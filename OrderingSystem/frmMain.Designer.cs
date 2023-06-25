@@ -45,6 +45,7 @@
             this.btnMenu.TabIndex = 0;
             this.btnMenu.Text = "訂購表單";
             this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // btnOrderManage
             // 

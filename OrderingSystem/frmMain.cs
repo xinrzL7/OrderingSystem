@@ -16,5 +16,11 @@ namespace OrderingSystem
         {
             InitializeComponent();
         }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+           frmMenu menu=  new frmMenu();
+            menu.ShowDialog();
+        }
     }
 }
