@@ -66,6 +66,7 @@
             this.btnProductMaintain.TabIndex = 2;
             this.btnProductMaintain.Text = "商品維護";
             this.btnProductMaintain.UseVisualStyleBackColor = true;
+            this.btnProductMaintain.Click += new System.EventHandler(this.btnProductMaintain_Click);
             // 
             // btnMember
             // 

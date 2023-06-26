@@ -19,8 +19,14 @@ namespace OrderingSystem
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-           frmMenu menu=  new frmMenu();
+            frmMenu menu=  new frmMenu();
             menu.ShowDialog();
+        }
+
+        private void btnProductMaintain_Click(object sender, EventArgs e)
+        {
+            frmProductMaintain proMaintain = new frmProductMaintain();
+            proMaintain.ShowDialog();
         }
     }
 }

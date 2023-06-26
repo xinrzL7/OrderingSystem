@@ -35,17 +35,21 @@ namespace OrderingSystem
         {
             InitializeComponent();
             //todo 簡化
+            cartTable();
+            //btnCancelCart.Click += btnCancelCart_Click;
+        }
+        void cartTable()
+        {
             dtCart = new DataTable();
-            dtCart.Columns.Add("訂購項目", typeof(string));
+            dtCart.Columns.Add("口味", typeof(string));
+            dtCart.Columns.Add("品項", typeof(string));
             dtCart.Columns.Add("單價", typeof(int));
             dtCart.Columns.Add("盒數", typeof(int));
             dtCart.Columns.Add("保冷劑", typeof(bool));
             dtCart.Columns.Add("宅配", typeof(bool));
             dtCart.Columns.Add("總價", typeof(int));
             dgvCart.DataSource = dtCart;
-            //btnCancelCart.Click += btnCancelCart_Click;
         }
-
         private void frmMenu_Load(object sender, EventArgs e)
         {
             scsb.DataSource = @".";
@@ -96,20 +100,19 @@ namespace OrderingSystem
             rbtnPickup.Checked = true; //0
             rbtnShipping.Checked = false; //1
             isShipping = false;
-            
         }
 
 
-        void dgvCartShow() 
+        void dgvCartShow()
         {
             SqlConnection con = new SqlConnection(strDBConnectionString);
             con.Open();
             string strSQL = "select flavor + itemname as 訂購項目, price as 單價, amount as 數量, ice, shipping as 宅配, totalprice as 總價 from caneleOrder where (buyer = @newBuyer) and (receiver = @newReceiver) ;";
-            SqlCommand cmd = new SqlCommand(@strSQL,con);
+            SqlCommand cmd = new SqlCommand(@strSQL, con);
             cmd.Parameters.AddWithValue("@newBuyer", txtBuyer.Text);
             cmd.Parameters.AddWithValue("@newReceiver", txtReceiver.Text);
             SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.HasRows==true) 
+            if (reader.HasRows == true)
             {
                 DataTable dt = new DataTable();
                 dt.Load(reader);
@@ -118,6 +121,7 @@ namespace OrderingSystem
             reader.Close();
             con.Close();
         }
+        
         void calculateTotalPrice() 
         {
             if (lboxIItems.SelectedIndex >= 0) 
@@ -214,11 +218,12 @@ namespace OrderingSystem
         // 新增
         private void btnJoinCart_Click(object sender, EventArgs e)
         {
-            if ((txtBuyer.Text != "") && (txtReceiver.Text != "") && (txtAddress.Text != "") && (lboxIItems.SelectedIndex >= 0))
+            if (lboxIItems.SelectedIndex >= 0)
             {
                 //todo 簡化
                 DataRow newrow = dtCart.NewRow();
-                newrow["訂購項目"] = selectedFlavor + " " + selectedItem;
+                newrow["口味"] = selectedFlavor;
+                newrow["品項"] = selectedItem;
                 newrow["單價"] = selectedPrice;
                 newrow["盒數"] = selectedAmount;
                 newrow["保冷劑"] = isIce;
@@ -233,16 +238,18 @@ namespace OrderingSystem
         //刪除
         private void btnCancelCart_Click(object sender, EventArgs e)
         {
-            DialogResult R = MessageBox.Show("確認要刪除此商品？", "刪除確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (R == DialogResult.Yes)
+            DialogResult result = MessageBox.Show("確認要刪除此筆資料？", "刪除確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
                 if (dgvCart.SelectedRows.Count > 0)
                 {
-                    int selectedCartIndex = dgvCart.SelectedRows[0].Index;
-                    dgvCart.Rows.RemoveAt(selectedCartIndex);
+                    int selectedIndex = dgvCart.SelectedRows[0].Index;
+                    dgvCart.Rows.RemoveAt(selectedIndex);
                 }
                 else
-                    MessageBox.Show("請選擇要刪除的商品！");
+                {
+                    MessageBox.Show("請選擇要刪除的資料行。");
+                }
             }
         }
 
@@ -251,30 +258,40 @@ namespace OrderingSystem
             lblCurrentTime.Text = DateTime.Now.ToString("G", new System.Globalization.CultureInfo("zh-TW"));
         }
 
-        //todo 存到SQL 要再修改
         private void btnBuyIt_Click(object sender, EventArgs e)
         {
-            if ((txtBuyer.Text != "") && (txtReceiver.Text != "") && (txtAddress.Text != "") && (lboxIItems.SelectedIndex >= 0))
+            if ((txtBuyer.Text != "") && (txtReceiver.Text != "") && (txtAddress.Text != "") && (dgvCart.Rows != null))
             {
                 SqlConnection con = new SqlConnection(strDBConnectionString);
                 con.Open();
-                string strSQL = "insert into caneleOrder values (@newBuyer, @newReceiver, @newAddress, @newFlavor, @newItemName, @newPrice, @newAmount, @newIce, @newShipping, @newTotalPrice, @newOrderTime);";
-                SqlCommand cmd = new SqlCommand(strSQL, con);
-                cmd.Parameters.AddWithValue("@newBuyer", txtBuyer.Text);
-                cmd.Parameters.AddWithValue("@newReceiver", txtReceiver.Text);
-                cmd.Parameters.AddWithValue("@newAddress", txtAddress.Text);
-                cmd.Parameters.AddWithValue("@newFlavor", selectedFlavor);
-                cmd.Parameters.AddWithValue("@newItemName", selectedItem);
-                cmd.Parameters.AddWithValue("@newPrice", selectedPrice);
-                cmd.Parameters.AddWithValue("@newAmount", selectedAmount);
-                cmd.Parameters.AddWithValue("@newIce", isIce);
-                cmd.Parameters.AddWithValue("@newShipping", isShipping);
-                cmd.Parameters.AddWithValue("@newTotalPrice", TotalPrice);
-                cmd.Parameters.AddWithValue("@newOrderTime", DateTime.Now);
 
-                int rows = cmd.ExecuteNonQuery();
+                foreach (DataGridViewRow row in dgvCart.Rows)
+                {
+                    if ((row.Cells["口味"].Value != null) && (row.Cells["品項"].Value != null) && ( row.Cells["單價"].Value != null) && (row.Cells["盒數"].Value != null) && (row.Cells["總價"].Value != null)) 
+                    {
+                        string selectedFlavor = row.Cells["口味"].Value.ToString();
+                        string selectedItem = row.Cells["品項"].Value.ToString();
+                        int selectedPrice = Convert.ToInt32(row.Cells["單價"].Value);
+                        int selectedAmount = Convert.ToInt32(row.Cells["盒數"].Value);
+                        int TotalPrice = Convert.ToInt32(row.Cells["總價"].Value);
+                        string strSQL = "insert into caneleOrder values (@newBuyer, @newReceiver, @newAddress, @newFlavor, @newItemName, @newPrice, @newAmount, @newIce, @newShipping, @newTotalPrice, @newOrderTime);";
+                        SqlCommand cmd = new SqlCommand(strSQL, con);
+                        cmd.Parameters.AddWithValue("@newBuyer", txtBuyer.Text);
+                        cmd.Parameters.AddWithValue("@newReceiver", txtReceiver.Text);
+                        cmd.Parameters.AddWithValue("@newAddress", txtAddress.Text);
+                        cmd.Parameters.AddWithValue("@newFlavor", selectedFlavor);
+                        cmd.Parameters.AddWithValue("@newItemName", selectedItem);
+                        cmd.Parameters.AddWithValue("@newPrice", selectedPrice);
+                        cmd.Parameters.AddWithValue("@newAmount", selectedAmount);
+                        cmd.Parameters.AddWithValue("@newIce", isIce);
+                        cmd.Parameters.AddWithValue("@newShipping", isShipping);
+                        cmd.Parameters.AddWithValue("@newTotalPrice", TotalPrice);
+                        cmd.Parameters.AddWithValue("@newOrderTime", DateTime.Now);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
                 con.Close();
-                MessageBox.Show($"訂單新增成功，{rows}筆資料受影響");
+                MessageBox.Show($"訂單新增成功，{dgvCart.Rows.Count-1}筆資料受影響");
             }
             else
             {

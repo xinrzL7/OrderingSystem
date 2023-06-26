@@ -375,11 +375,11 @@
             this.label11.AutoSize = true;
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label11.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label11.Location = new System.Drawing.Point(18, 235);
+            this.label11.Location = new System.Drawing.Point(12, 237);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(141, 22);
+            this.label11.Size = new System.Drawing.Size(189, 22);
             this.label11.TabIndex = 32;
-            this.label11.Text = "三盒以上95折優惠";
+            this.label11.Text = "同品項三盒以上95折優惠";
             // 
             // btnJoinCart
             // 
@@ -399,7 +399,7 @@
             this.groupBox2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.groupBox2.Location = new System.Drawing.Point(536, 314);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(349, 390);
+            this.groupBox2.Size = new System.Drawing.Size(696, 390);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "購物清單";
@@ -407,16 +407,16 @@
             // dgvCart
             // 
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCart.Location = new System.Drawing.Point(6, 43);
+            this.dgvCart.Location = new System.Drawing.Point(15, 43);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.RowTemplate.Height = 24;
-            this.dgvCart.Size = new System.Drawing.Size(320, 292);
+            this.dgvCart.Size = new System.Drawing.Size(681, 292);
             this.dgvCart.TabIndex = 28;
             // 
             // btnBuyIt
             // 
             this.btnBuyIt.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnBuyIt.Location = new System.Drawing.Point(221, 351);
+            this.btnBuyIt.Location = new System.Drawing.Point(500, 341);
             this.btnBuyIt.Name = "btnBuyIt";
             this.btnBuyIt.Size = new System.Drawing.Size(105, 33);
             this.btnBuyIt.TabIndex = 27;
@@ -495,12 +495,12 @@
         private System.Windows.Forms.GroupBox gboxFood;
         private System.Windows.Forms.Button btnJoinCart;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dgvCart;
         private System.Windows.Forms.Button btnBuyIt;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnCancelCart;
         private System.Windows.Forms.Timer timerCurrentTime;
         private System.Windows.Forms.Label lblCurrentTime;
+        private System.Windows.Forms.DataGridView dgvCart;
     }
 }
