@@ -40,46 +40,50 @@
             // 
             // btnRefresh
             // 
+            this.btnRefresh.BackColor = System.Drawing.Color.Linen;
             this.btnRefresh.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnRefresh.Location = new System.Drawing.Point(590, 366);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(127, 40);
             this.btnRefresh.TabIndex = 11;
             this.btnRefresh.Text = "重新整理";
-            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnNewProduct
             // 
+            this.btnNewProduct.BackColor = System.Drawing.Color.Linen;
             this.btnNewProduct.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnNewProduct.Location = new System.Drawing.Point(404, 366);
             this.btnNewProduct.Name = "btnNewProduct";
             this.btnNewProduct.Size = new System.Drawing.Size(127, 40);
             this.btnNewProduct.TabIndex = 10;
             this.btnNewProduct.Text = "新增商品";
-            this.btnNewProduct.UseVisualStyleBackColor = true;
+            this.btnNewProduct.UseVisualStyleBackColor = false;
             this.btnNewProduct.Click += new System.EventHandler(this.btnNewProduct_Click);
             // 
             // btnListMode
             // 
+            this.btnListMode.BackColor = System.Drawing.Color.Linen;
             this.btnListMode.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnListMode.Location = new System.Drawing.Point(217, 366);
             this.btnListMode.Name = "btnListMode";
             this.btnListMode.Size = new System.Drawing.Size(127, 40);
             this.btnListMode.TabIndex = 9;
             this.btnListMode.Text = "列表模式";
-            this.btnListMode.UseVisualStyleBackColor = true;
+            this.btnListMode.UseVisualStyleBackColor = false;
             this.btnListMode.Click += new System.EventHandler(this.btnListMode_Click);
             // 
             // btnPicMode
             // 
+            this.btnPicMode.BackColor = System.Drawing.Color.Linen;
             this.btnPicMode.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnPicMode.Location = new System.Drawing.Point(41, 366);
             this.btnPicMode.Name = "btnPicMode";
             this.btnPicMode.Size = new System.Drawing.Size(127, 40);
             this.btnPicMode.TabIndex = 8;
             this.btnPicMode.Text = "圖片模式";
-            this.btnPicMode.UseVisualStyleBackColor = true;
+            this.btnPicMode.UseVisualStyleBackColor = false;
             this.btnPicMode.Click += new System.EventHandler(this.btnPicMode_Click);
             // 
             // lvShowProduct
@@ -87,9 +91,9 @@
             this.lvShowProduct.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.lvShowProduct.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lvShowProduct.HideSelection = false;
-            this.lvShowProduct.Location = new System.Drawing.Point(41, 96);
+            this.lvShowProduct.Location = new System.Drawing.Point(41, 89);
             this.lvShowProduct.Name = "lvShowProduct";
-            this.lvShowProduct.Size = new System.Drawing.Size(676, 225);
+            this.lvShowProduct.Size = new System.Drawing.Size(676, 232);
             this.lvShowProduct.TabIndex = 7;
             this.lvShowProduct.UseCompatibleStateImageBehavior = false;
             this.lvShowProduct.ItemActivate += new System.EventHandler(this.lvShowProduct_ItemActivate);
@@ -114,7 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.GhostWhite;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(767, 444);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnNewProduct);

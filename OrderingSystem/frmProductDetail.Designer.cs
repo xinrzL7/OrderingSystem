@@ -54,9 +54,9 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.LightYellow;
+            this.label6.BackColor = System.Drawing.Color.Ivory;
             this.label6.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label6.Location = new System.Drawing.Point(55, 31);
+            this.label6.Location = new System.Drawing.Point(411, 25);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(177, 34);
             this.label6.TabIndex = 25;
@@ -64,7 +64,7 @@
             // 
             // gboxProductNew
             // 
-            this.gboxProductNew.BackColor = System.Drawing.Color.Gainsboro;
+            this.gboxProductNew.BackColor = System.Drawing.Color.Ivory;
             this.gboxProductNew.Controls.Add(this.btnClear);
             this.gboxProductNew.Controls.Add(this.btnNewProPic);
             this.gboxProductNew.Controls.Add(this.btnNewProduct);
@@ -78,34 +78,37 @@
             // 
             // btnClear
             // 
+            this.btnClear.BackColor = System.Drawing.Color.White;
             this.btnClear.Location = new System.Drawing.Point(250, 63);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(121, 53);
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "清空欄位";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.UseVisualStyleBackColor = false;
             // 
             // btnNewProPic
             // 
+            this.btnNewProPic.BackColor = System.Drawing.Color.White;
             this.btnNewProPic.Location = new System.Drawing.Point(67, 39);
             this.btnNewProPic.Name = "btnNewProPic";
             this.btnNewProPic.Size = new System.Drawing.Size(141, 37);
             this.btnNewProPic.TabIndex = 2;
             this.btnNewProPic.Text = "選取商品照片";
-            this.btnNewProPic.UseVisualStyleBackColor = true;
+            this.btnNewProPic.UseVisualStyleBackColor = false;
             // 
             // btnNewProduct
             // 
+            this.btnNewProduct.BackColor = System.Drawing.Color.White;
             this.btnNewProduct.Location = new System.Drawing.Point(67, 94);
             this.btnNewProduct.Name = "btnNewProduct";
             this.btnNewProduct.Size = new System.Drawing.Size(141, 37);
             this.btnNewProduct.TabIndex = 1;
             this.btnNewProduct.Text = "儲存商品";
-            this.btnNewProduct.UseVisualStyleBackColor = true;
+            this.btnNewProduct.UseVisualStyleBackColor = false;
             // 
             // gboxProductEdit
             // 
-            this.gboxProductEdit.BackColor = System.Drawing.Color.Gainsboro;
+            this.gboxProductEdit.BackColor = System.Drawing.Color.Ivory;
             this.gboxProductEdit.Controls.Add(this.btnEditSave);
             this.gboxProductEdit.Controls.Add(this.btnEditProPic);
             this.gboxProductEdit.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -118,21 +121,23 @@
             // 
             // btnEditSave
             // 
+            this.btnEditSave.BackColor = System.Drawing.Color.White;
             this.btnEditSave.Location = new System.Drawing.Point(126, 94);
             this.btnEditSave.Name = "btnEditSave";
             this.btnEditSave.Size = new System.Drawing.Size(141, 37);
             this.btnEditSave.TabIndex = 1;
             this.btnEditSave.Text = "儲存修改";
-            this.btnEditSave.UseVisualStyleBackColor = true;
+            this.btnEditSave.UseVisualStyleBackColor = false;
             // 
             // btnEditProPic
             // 
+            this.btnEditProPic.BackColor = System.Drawing.Color.White;
             this.btnEditProPic.Location = new System.Drawing.Point(126, 39);
             this.btnEditProPic.Name = "btnEditProPic";
             this.btnEditProPic.Size = new System.Drawing.Size(141, 37);
             this.btnEditProPic.TabIndex = 0;
             this.btnEditProPic.Text = "選取商品照片";
-            this.btnEditProPic.UseVisualStyleBackColor = true;
+            this.btnEditProPic.UseVisualStyleBackColor = false;
             // 
             // pboxProduct
             // 
@@ -181,7 +186,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.LightYellow;
+            this.label5.BackColor = System.Drawing.Color.Ivory;
             this.label5.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label5.Location = new System.Drawing.Point(798, 89);
             this.label5.Name = "label5";

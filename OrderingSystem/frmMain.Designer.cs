@@ -38,65 +38,71 @@
             // 
             // btnMenu
             // 
+            this.btnMenu.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnMenu.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnMenu.Location = new System.Drawing.Point(12, 28);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(131, 96);
             this.btnMenu.TabIndex = 0;
             this.btnMenu.Text = "訂購表單";
-            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // btnOrderManage
             // 
+            this.btnOrderManage.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnOrderManage.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnOrderManage.Location = new System.Drawing.Point(160, 28);
             this.btnOrderManage.Name = "btnOrderManage";
             this.btnOrderManage.Size = new System.Drawing.Size(131, 96);
             this.btnOrderManage.TabIndex = 1;
             this.btnOrderManage.Text = "訂單管理";
-            this.btnOrderManage.UseVisualStyleBackColor = true;
+            this.btnOrderManage.UseVisualStyleBackColor = false;
             // 
             // btnProductMaintain
             // 
+            this.btnProductMaintain.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnProductMaintain.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnProductMaintain.Location = new System.Drawing.Point(306, 28);
             this.btnProductMaintain.Name = "btnProductMaintain";
             this.btnProductMaintain.Size = new System.Drawing.Size(131, 96);
             this.btnProductMaintain.TabIndex = 2;
             this.btnProductMaintain.Text = "商品維護";
-            this.btnProductMaintain.UseVisualStyleBackColor = true;
+            this.btnProductMaintain.UseVisualStyleBackColor = false;
             this.btnProductMaintain.Click += new System.EventHandler(this.btnProductMaintain_Click);
             // 
             // btnMember
             // 
+            this.btnMember.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnMember.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnMember.Location = new System.Drawing.Point(12, 140);
             this.btnMember.Name = "btnMember";
             this.btnMember.Size = new System.Drawing.Size(131, 96);
             this.btnMember.TabIndex = 3;
             this.btnMember.Text = "會員系統";
-            this.btnMember.UseVisualStyleBackColor = true;
+            this.btnMember.UseVisualStyleBackColor = false;
             // 
             // btnSystemMaintain
             // 
+            this.btnSystemMaintain.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnSystemMaintain.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnSystemMaintain.Location = new System.Drawing.Point(160, 140);
             this.btnSystemMaintain.Name = "btnSystemMaintain";
             this.btnSystemMaintain.Size = new System.Drawing.Size(131, 96);
             this.btnSystemMaintain.TabIndex = 4;
             this.btnSystemMaintain.Text = "系統維護";
-            this.btnSystemMaintain.UseVisualStyleBackColor = true;
+            this.btnSystemMaintain.UseVisualStyleBackColor = false;
             // 
             // btnSignIn
             // 
+            this.btnSignIn.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnSignIn.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnSignIn.Location = new System.Drawing.Point(306, 165);
             this.btnSignIn.Name = "btnSignIn";
             this.btnSignIn.Size = new System.Drawing.Size(131, 46);
             this.btnSignIn.TabIndex = 5;
             this.btnSignIn.Text = "登入";
-            this.btnSignIn.UseVisualStyleBackColor = true;
+            this.btnSignIn.UseVisualStyleBackColor = false;
             // 
             // frmMain
             // 
