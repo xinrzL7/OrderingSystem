@@ -22,11 +22,10 @@ namespace OrderingSystem
             frmMenu menu=  new frmMenu();
             menu.ShowDialog();
         }
+        //todo 6/28從訂購表單開始
 
-        private void btnProductMaintain_Click(object sender, EventArgs e)
-        {
-            frmProductMaintain proMaintain = new frmProductMaintain();
-            proMaintain.ShowDialog();
-        }
+
+
+
     }
 }
