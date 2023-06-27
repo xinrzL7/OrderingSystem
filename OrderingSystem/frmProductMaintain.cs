@@ -63,8 +63,8 @@ namespace OrderingSystem
 
         void showProductPicrture()
         {
-            lvShowProduct.Clear(); //清空先前的結果
-            lvShowProduct.View = View.LargeIcon; //LargeIcon(文字在圖下方), SmallIcon(文字在圖右方), List, Tile(固定高度－圖會被切掉，所以適用於小圖)
+            lvShowProduct.Clear(); 
+            lvShowProduct.View = View.LargeIcon; //LargeIcon(文字在圖下方), SmallIcon(文字在圖右方), List, 
             imglistProduct.ImageSize = new Size(200, 200); //最大為一開始設定的(256, 256)
             lvShowProduct.LargeImageList = imglistProduct;
             lvShowProduct.SmallImageList = imglistProduct;  //建議可用於商品數量多時(min: 30x30)

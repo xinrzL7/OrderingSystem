@@ -34,24 +34,26 @@
             // 
             // btnMenu
             // 
+            this.btnMenu.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnMenu.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnMenu.Location = new System.Drawing.Point(12, 28);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(131, 96);
             this.btnMenu.TabIndex = 0;
             this.btnMenu.Text = "訂購表單";
-            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // btnMember
             // 
+            this.btnMember.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnMember.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnMember.Location = new System.Drawing.Point(12, 140);
             this.btnMember.Name = "btnMember";
             this.btnMember.Size = new System.Drawing.Size(131, 96);
             this.btnMember.TabIndex = 3;
             this.btnMember.Text = "會員系統";
-            this.btnMember.UseVisualStyleBackColor = true;
+            this.btnMember.UseVisualStyleBackColor = false;
             // 
             // frmMain
             // 
