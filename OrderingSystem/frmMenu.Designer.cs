@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.lboxIItems = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtBuyer = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtReceiver = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -50,7 +48,6 @@
             this.chkboxIce = new System.Windows.Forms.CheckBox();
             this.rbtnShipping = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.rbtnPickup = new System.Windows.Forms.RadioButton();
             this.gboxCustomer = new System.Windows.Forms.GroupBox();
             this.gboxFood = new System.Windows.Forms.GroupBox();
@@ -62,6 +59,8 @@
             this.btnBuyIt = new System.Windows.Forms.Button();
             this.timerCurrentTime = new System.Windows.Forms.Timer(this.components);
             this.lblCurrentTime = new System.Windows.Forms.Label();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.groupBox1.SuspendLayout();
             this.gboxCustomer.SuspendLayout();
             this.gboxFood.SuspendLayout();
@@ -84,37 +83,18 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(344, 23);
+            this.label2.Location = new System.Drawing.Point(430, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(204, 34);
+            this.label2.Size = new System.Drawing.Size(84, 34);
             this.label2.TabIndex = 6;
-            this.label2.Text = "可麗露訂購表單";
+            this.label2.Text = "order";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(40, 51);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 24);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "訂購人姓名 / 電話";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtBuyer
-            // 
-            this.txtBuyer.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtBuyer.Location = new System.Drawing.Point(208, 48);
-            this.txtBuyer.Name = "txtBuyer";
-            this.txtBuyer.Size = new System.Drawing.Size(197, 33);
-            this.txtBuyer.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.Location = new System.Drawing.Point(40, 104);
+            this.label4.Location = new System.Drawing.Point(31, 52);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(161, 24);
             this.label4.TabIndex = 10;
@@ -124,7 +104,7 @@
             // txtReceiver
             // 
             this.txtReceiver.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtReceiver.Location = new System.Drawing.Point(208, 101);
+            this.txtReceiver.Location = new System.Drawing.Point(199, 49);
             this.txtReceiver.Name = "txtReceiver";
             this.txtReceiver.Size = new System.Drawing.Size(197, 33);
             this.txtReceiver.TabIndex = 11;
@@ -133,7 +113,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label5.Location = new System.Drawing.Point(40, 155);
+            this.label5.Location = new System.Drawing.Point(31, 109);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(212, 24);
             this.label5.TabIndex = 12;
@@ -143,7 +123,7 @@
             // txtAddress
             // 
             this.txtAddress.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtAddress.Location = new System.Drawing.Point(258, 152);
+            this.txtAddress.Location = new System.Drawing.Point(249, 100);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(273, 33);
             this.txtAddress.TabIndex = 13;
@@ -272,6 +252,7 @@
             // 
             this.rbtnShipping.AutoSize = true;
             this.rbtnShipping.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.rbtnShipping.ForeColor = System.Drawing.Color.Black;
             this.rbtnShipping.Location = new System.Drawing.Point(154, 68);
             this.rbtnShipping.Name = "rbtnShipping";
             this.rbtnShipping.Size = new System.Drawing.Size(66, 28);
@@ -283,53 +264,39 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.rbtnPickup);
             this.groupBox1.Controls.Add(this.rbtnShipping);
             this.groupBox1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox1.Location = new System.Drawing.Point(554, 32);
+            this.groupBox1.Location = new System.Drawing.Point(574, 306);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(276, 153);
+            this.groupBox1.Size = new System.Drawing.Size(294, 121);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "運送方式";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label9.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label9.Location = new System.Drawing.Point(154, 99);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(112, 42);
-            this.label9.TabIndex = 31;
-            this.label9.Text = "運費150元\r\n滿五盒免運哦!";
             // 
             // rbtnPickup
             // 
             this.rbtnPickup.AutoSize = true;
             this.rbtnPickup.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.rbtnPickup.ForeColor = System.Drawing.Color.Black;
             this.rbtnPickup.Location = new System.Drawing.Point(15, 68);
             this.rbtnPickup.Name = "rbtnPickup";
-            this.rbtnPickup.Size = new System.Drawing.Size(123, 28);
+            this.rbtnPickup.Size = new System.Drawing.Size(104, 28);
             this.rbtnPickup.TabIndex = 27;
             this.rbtnPickup.TabStop = true;
-            this.rbtnPickup.Text = "工作室取貨";
+            this.rbtnPickup.Text = "超商取貨";
             this.rbtnPickup.UseVisualStyleBackColor = true;
             // 
             // gboxCustomer
             // 
-            this.gboxCustomer.Controls.Add(this.label3);
-            this.gboxCustomer.Controls.Add(this.txtBuyer);
             this.gboxCustomer.Controls.Add(this.label4);
-            this.gboxCustomer.Controls.Add(this.groupBox1);
             this.gboxCustomer.Controls.Add(this.txtReceiver);
             this.gboxCustomer.Controls.Add(this.label5);
             this.gboxCustomer.Controls.Add(this.txtAddress);
             this.gboxCustomer.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.gboxCustomer.Location = new System.Drawing.Point(17, 72);
+            this.gboxCustomer.Location = new System.Drawing.Point(632, 64);
             this.gboxCustomer.Name = "gboxCustomer";
-            this.gboxCustomer.Size = new System.Drawing.Size(868, 222);
+            this.gboxCustomer.Size = new System.Drawing.Size(554, 161);
             this.gboxCustomer.TabIndex = 28;
             this.gboxCustomer.TabStop = false;
             this.gboxCustomer.Text = "顧客資訊";
@@ -352,7 +319,7 @@
             this.gboxFood.Controls.Add(this.txtAmount);
             this.gboxFood.Controls.Add(this.btnMinus);
             this.gboxFood.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.gboxFood.Location = new System.Drawing.Point(17, 314);
+            this.gboxFood.Location = new System.Drawing.Point(29, 213);
             this.gboxFood.Name = "gboxFood";
             this.gboxFood.Size = new System.Drawing.Size(513, 390);
             this.gboxFood.TabIndex = 29;
@@ -397,9 +364,9 @@
             this.groupBox2.Controls.Add(this.dgvCart);
             this.groupBox2.Controls.Add(this.btnBuyIt);
             this.groupBox2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox2.Location = new System.Drawing.Point(536, 314);
+            this.groupBox2.Location = new System.Drawing.Point(648, 404);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(696, 390);
+            this.groupBox2.Size = new System.Drawing.Size(505, 207);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "購物清單";
@@ -407,10 +374,10 @@
             // dgvCart
             // 
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCart.Location = new System.Drawing.Point(15, 43);
+            this.dgvCart.Location = new System.Drawing.Point(0, 29);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.RowTemplate.Height = 24;
-            this.dgvCart.Size = new System.Drawing.Size(681, 292);
+            this.dgvCart.Size = new System.Drawing.Size(477, 184);
             this.dgvCart.TabIndex = 28;
             // 
             // btnBuyIt
@@ -433,24 +400,56 @@
             // 
             this.lblCurrentTime.AutoSize = true;
             this.lblCurrentTime.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblCurrentTime.Location = new System.Drawing.Point(703, 49);
+            this.lblCurrentTime.Location = new System.Drawing.Point(1026, 9);
             this.lblCurrentTime.Name = "lblCurrentTime";
             this.lblCurrentTime.Size = new System.Drawing.Size(54, 20);
             this.lblCurrentTime.TabIndex = 31;
             this.lblCurrentTime.Text = "label1";
             this.lblCurrentTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // guna2ComboBox1
+            // 
+            this.guna2ComboBox1.AutoRoundedCorners = true;
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.BorderRadius = 17;
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.Black;
+            this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.Items.AddRange(new object[] {
+            "Top",
+            "Bottoms",
+            "Outwears",
+            "Accessories"});
+            this.guna2ComboBox1.Location = new System.Drawing.Point(81, 90);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.Size = new System.Drawing.Size(162, 36);
+            this.guna2ComboBox1.StartIndex = 0;
+            this.guna2ComboBox1.TabIndex = 35;
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 30;
+            this.guna2Elipse1.TargetControl = this;
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1257, 763);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1090, 574);
+            this.Controls.Add(this.guna2ComboBox1);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblCurrentTime);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gboxFood);
             this.Controls.Add(this.gboxCustomer);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMenu";
             this.Text = "訂購表單";
             this.Load += new System.EventHandler(this.frmMenu_Load);
@@ -471,8 +470,6 @@
 
         private System.Windows.Forms.ListBox lboxIItems;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtBuyer;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtReceiver;
         private System.Windows.Forms.Label label5;
@@ -496,11 +493,12 @@
         private System.Windows.Forms.Button btnJoinCart;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnBuyIt;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnCancelCart;
         private System.Windows.Forms.Timer timerCurrentTime;
         private System.Windows.Forms.Label lblCurrentTime;
         private System.Windows.Forms.DataGridView dgvCart;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }

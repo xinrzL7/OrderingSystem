@@ -103,24 +103,24 @@ namespace OrderingSystem
         }
 
 
-        void dgvCartShow()
-        {
-            SqlConnection con = new SqlConnection(strDBConnectionString);
-            con.Open();
-            string strSQL = "select flavor + itemname as 訂購項目, price as 單價, amount as 數量, ice, shipping as 宅配, totalprice as 總價 from caneleOrder where (buyer = @newBuyer) and (receiver = @newReceiver) ;";
-            SqlCommand cmd = new SqlCommand(@strSQL, con);
-            cmd.Parameters.AddWithValue("@newBuyer", txtBuyer.Text);
-            cmd.Parameters.AddWithValue("@newReceiver", txtReceiver.Text);
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.HasRows == true)
-            {
-                DataTable dt = new DataTable();
-                dt.Load(reader);
-                dgvCart.DataSource = dt;
-            }
-            reader.Close();
-            con.Close();
-        }
+        //void dgvCartShow()
+        //{
+        //    SqlConnection con = new SqlConnection(strDBConnectionString);
+        //    con.Open();
+        //    string strSQL = "select flavor + itemname as 訂購項目, price as 單價, amount as 數量, ice, shipping as 宅配, totalprice as 總價 from caneleOrder where (buyer = @newBuyer) and (receiver = @newReceiver) ;";
+        //    SqlCommand cmd = new SqlCommand(@strSQL, con);
+        //    cmd.Parameters.AddWithValue("@newBuyer", txtBuyer.Text);
+        //    cmd.Parameters.AddWithValue("@newReceiver", txtReceiver.Text);
+        //    SqlDataReader reader = cmd.ExecuteReader();
+        //    if (reader.HasRows == true)
+        //    {
+        //        DataTable dt = new DataTable();
+        //        dt.Load(reader);
+        //        dgvCart.DataSource = dt;
+        //    }
+        //    reader.Close();
+        //    con.Close();
+        //}
         
         void calculateTotalPrice() 
         {
@@ -298,5 +298,7 @@ namespace OrderingSystem
                 MessageBox.Show("欄位未輸入完整！");
             }
         }
+
+        
     }
 }
