@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lboxIItems = new System.Windows.Forms.ListBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtReceiver = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -59,7 +58,6 @@
             this.btnBuyIt = new System.Windows.Forms.Button();
             this.timerCurrentTime = new System.Windows.Forms.Timer(this.components);
             this.lblCurrentTime = new System.Windows.Forms.Label();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.groupBox1.SuspendLayout();
             this.gboxCustomer.SuspendLayout();
@@ -77,18 +75,6 @@
             this.lboxIItems.Name = "lboxIItems";
             this.lboxIItems.Size = new System.Drawing.Size(286, 292);
             this.lboxIItems.TabIndex = 7;
-            this.lboxIItems.SelectedIndexChanged += new System.EventHandler(this.lboxIItems_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(430, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 34);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "order";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -148,7 +134,6 @@
             this.cboxFlavor.Size = new System.Drawing.Size(123, 32);
             this.cboxFlavor.TabIndex = 15;
             this.cboxFlavor.Text = "請選擇";
-            this.cboxFlavor.SelectedIndexChanged += new System.EventHandler(this.cboxFlavor_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -179,7 +164,6 @@
             this.btnMinus.TabIndex = 18;
             this.btnMinus.Text = "-";
             this.btnMinus.UseVisualStyleBackColor = true;
-            this.btnMinus.Click += new System.EventHandler(this.btnMinus_Click);
             // 
             // btnPlus
             // 
@@ -190,7 +174,6 @@
             this.btnPlus.TabIndex = 19;
             this.btnPlus.Text = "+";
             this.btnPlus.UseVisualStyleBackColor = true;
-            this.btnPlus.Click += new System.EventHandler(this.btnPlus_Click);
             // 
             // label8
             // 
@@ -246,7 +229,6 @@
             this.chkboxIce.TabIndex = 25;
             this.chkboxIce.Text = "加購保冷劑(10元)";
             this.chkboxIce.UseVisualStyleBackColor = true;
-            this.chkboxIce.CheckedChanged += new System.EventHandler(this.chkboxIce_CheckedChanged);
             // 
             // rbtnShipping
             // 
@@ -260,7 +242,6 @@
             this.rbtnShipping.TabStop = true;
             this.rbtnShipping.Text = "宅配";
             this.rbtnShipping.UseVisualStyleBackColor = true;
-            this.rbtnShipping.CheckedChanged += new System.EventHandler(this.rbtnShipping_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -335,7 +316,6 @@
             this.btnCancelCart.TabIndex = 33;
             this.btnCancelCart.Text = "取消加入";
             this.btnCancelCart.UseVisualStyleBackColor = true;
-            this.btnCancelCart.Click += new System.EventHandler(this.btnCancelCart_Click);
             // 
             // label11
             // 
@@ -357,7 +337,6 @@
             this.btnJoinCart.TabIndex = 26;
             this.btnJoinCart.Text = "加入購物車";
             this.btnJoinCart.UseVisualStyleBackColor = true;
-            this.btnJoinCart.Click += new System.EventHandler(this.btnJoinCart_Click);
             // 
             // groupBox2
             // 
@@ -389,12 +368,10 @@
             this.btnBuyIt.TabIndex = 27;
             this.btnBuyIt.Text = "結帳";
             this.btnBuyIt.UseVisualStyleBackColor = true;
-            this.btnBuyIt.Click += new System.EventHandler(this.btnBuyIt_Click);
             // 
             // timerCurrentTime
             // 
             this.timerCurrentTime.Enabled = true;
-            this.timerCurrentTime.Tick += new System.EventHandler(this.timerCurrentTime_Tick);
             // 
             // lblCurrentTime
             // 
@@ -407,30 +384,6 @@
             this.lblCurrentTime.Text = "label1";
             this.lblCurrentTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // guna2ComboBox1
-            // 
-            this.guna2ComboBox1.AutoRoundedCorners = true;
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderRadius = 17;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Items.AddRange(new object[] {
-            "Top",
-            "Bottoms",
-            "Outwears",
-            "Accessories"});
-            this.guna2ComboBox1.Location = new System.Drawing.Point(81, 90);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(162, 36);
-            this.guna2ComboBox1.StartIndex = 0;
-            this.guna2ComboBox1.TabIndex = 35;
-            // 
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 30;
@@ -441,14 +394,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1090, 574);
-            this.Controls.Add(this.guna2ComboBox1);
+            this.ClientSize = new System.Drawing.Size(1182, 664);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblCurrentTime);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gboxFood);
             this.Controls.Add(this.gboxCustomer);
-            this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMenu";
             this.Text = "訂購表單";
@@ -469,7 +420,6 @@
         #endregion
 
         private System.Windows.Forms.ListBox lboxIItems;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtReceiver;
         private System.Windows.Forms.Label label5;
@@ -498,7 +448,6 @@
         private System.Windows.Forms.Timer timerCurrentTime;
         private System.Windows.Forms.Label lblCurrentTime;
         private System.Windows.Forms.DataGridView dgvCart;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }
