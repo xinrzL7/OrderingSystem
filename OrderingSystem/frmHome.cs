@@ -19,9 +19,12 @@ namespace OrderingSystem
         string strImgDir = @"..\..\ProductImage"; //圖檔路徑
 
         //list
+        List<string> listCategories = new List<string>();
         List<string> listProductName = new List<string>();
         List<int> listUnitPrice = new List<int>();
         List<int> listProductID = new List<int>();
+
+        string selectedCategory = ""; 
 
         public frmHome()
         {
@@ -53,10 +56,9 @@ namespace OrderingSystem
                 listProductName.Add((string)reader["ProductName"]);
                 listUnitPrice.Add((int)reader["UnitPrice"]);
                 string ProductImgName = (string)reader["ProductImage"];
-                //string FullImgPath = strImgDir + "\\" + ProductImgName;      
                 string FullImgPath = Path.Combine(strImgDir, ProductImgName);   
                 Image ProImg = Image.FromFile(FullImgPath);
-                imglistProduct.Images.Add(ProImg);
+                imglistTop.Images.Add(ProImg);
                 count++;
             }
             reader.Close();
@@ -65,13 +67,13 @@ namespace OrderingSystem
         }
         void ShowProducts()
         {
-            lvProducts.Clear(); //清空先前的結果
+            lvProducts.Clear(); 
             lvProducts.View = View.LargeIcon; 
-            imglistProduct.ImageSize = new Size(150, 150); //最大為一開始設定的(256, 256)
-            lvProducts.LargeImageList = imglistProduct;
-            lvProducts.SmallImageList = imglistProduct;  //建議可用於商品數量多時(min: 30x30)
+            imglistTop.ImageSize = new Size(150, 150); 
+            lvProducts.LargeImageList = imglistTop;
+            lvProducts.SmallImageList = imglistTop;
             //商品資訊-用index
-            for (int i = 0; i < imglistProduct.Images.Count; i++)
+            for (int i = 0; i < imglistTop.Images.Count; i++)
             {
                 ListViewItem item = new ListViewItem(); // listview的顯示單元
                 item.ImageIndex = i; //圖檔索引值對應
@@ -93,6 +95,12 @@ namespace OrderingSystem
         private void btnEsc_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cboxCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedCategory = listCategories[cboxCategories.SelectedIndex];
+            lvProducts.Items.Clear();
         }
     }
 }

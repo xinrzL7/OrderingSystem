@@ -255,7 +255,7 @@ namespace OrderingSystem
 
         //private void timerCurrentTime_Tick(object sender, EventArgs e)
         //{
-        //    lblCurrentTime.Text = DateTime.Now.ToString("G", new System.Globalization.CultureInfo("zh-TW"));
+        //    lblCurrentTime.Text = DateTi  me.Now.ToString("G", new System.Globalization.CultureInfo("zh-TW"));
         //}
 
         //private void btnBuyIt_Click(object sender, EventArgs e)

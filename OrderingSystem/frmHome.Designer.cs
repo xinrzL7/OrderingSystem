@@ -29,13 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHome));
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cboxCategories = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lvProducts = new System.Windows.Forms.ListView();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.imglistProduct = new System.Windows.Forms.ImageList(this.components);
+            this.imglistTop = new System.Windows.Forms.ImageList(this.components);
             this.btnEsc = new Guna.UI2.WinForms.Guna2Button();
+            this.imglistBottoms = new System.Windows.Forms.ImageList(this.components);
+            this.imglistOutwears = new System.Windows.Forms.ImageList(this.components);
+            this.imglistDress = new System.Windows.Forms.ImageList(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,29 +48,30 @@
             this.guna2Elipse1.BorderRadius = 30;
             this.guna2Elipse1.TargetControl = this;
             // 
-            // guna2ComboBox1
+            // cboxCategories
             // 
-            this.guna2ComboBox1.AutoRoundedCorners = true;
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderRadius = 17;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Items.AddRange(new object[] {
+            this.cboxCategories.AutoRoundedCorners = true;
+            this.cboxCategories.BackColor = System.Drawing.Color.Transparent;
+            this.cboxCategories.BorderRadius = 17;
+            this.cboxCategories.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboxCategories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxCategories.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.cboxCategories.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboxCategories.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboxCategories.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.cboxCategories.ForeColor = System.Drawing.Color.Black;
+            this.cboxCategories.ItemHeight = 30;
+            this.cboxCategories.Items.AddRange(new object[] {
             "Top",
             "Bottoms",
             "Outwears",
             "Dress"});
-            this.guna2ComboBox1.Location = new System.Drawing.Point(12, 63);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(172, 36);
-            this.guna2ComboBox1.StartIndex = 0;
-            this.guna2ComboBox1.TabIndex = 36;
+            this.cboxCategories.Location = new System.Drawing.Point(12, 63);
+            this.cboxCategories.Name = "cboxCategories";
+            this.cboxCategories.Size = new System.Drawing.Size(172, 36);
+            this.cboxCategories.StartIndex = 0;
+            this.cboxCategories.TabIndex = 36;
+            this.cboxCategories.SelectedIndexChanged += new System.EventHandler(this.cboxCategories_SelectedIndexChanged);
             // 
             // lvProducts
             // 
@@ -89,7 +94,7 @@
             this.btnLogin.FillColor = System.Drawing.Color.WhiteSmoke;
             this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.Color.DimGray;
-            this.btnLogin.Location = new System.Drawing.Point(1015, 12);
+            this.btnLogin.Location = new System.Drawing.Point(949, 12);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(102, 42);
             this.btnLogin.TabIndex = 39;
@@ -98,18 +103,20 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.guna2ComboBox1);
+            this.panel1.Controls.Add(this.cboxCategories);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(210, 664);
+            this.panel1.Size = new System.Drawing.Size(220, 664);
             this.panel1.TabIndex = 40;
             // 
-            // imglistProduct
+            // imglistTop
             // 
-            this.imglistProduct.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imglistProduct.ImageSize = new System.Drawing.Size(256, 256);
-            this.imglistProduct.TransparentColor = System.Drawing.Color.Transparent;
+            this.imglistTop.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imglistTop.ImageStream")));
+            this.imglistTop.TransparentColor = System.Drawing.Color.Transparent;
+            this.imglistTop.Images.SetKeyName(0, "top1.png");
+            this.imglistTop.Images.SetKeyName(1, "top2.png");
+            this.imglistTop.Images.SetKeyName(2, "top3.png");
             // 
             // btnEsc
             // 
@@ -129,6 +136,24 @@
             this.btnEsc.TabIndex = 41;
             this.btnEsc.Text = "X";
             this.btnEsc.Click += new System.EventHandler(this.btnEsc_Click);
+            // 
+            // imglistBottoms
+            // 
+            this.imglistBottoms.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imglistBottoms.ImageSize = new System.Drawing.Size(256, 256);
+            this.imglistBottoms.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // imglistOutwears
+            // 
+            this.imglistOutwears.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imglistOutwears.ImageSize = new System.Drawing.Size(256, 256);
+            this.imglistOutwears.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // imglistDress
+            // 
+            this.imglistDress.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imglistDress.ImageSize = new System.Drawing.Size(256, 256);
+            this.imglistDress.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // frmHome
             // 
@@ -153,11 +178,14 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2ComboBox cboxCategories;
         private System.Windows.Forms.ListView lvProducts;
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ImageList imglistProduct;
+        private System.Windows.Forms.ImageList imglistTop;
         private Guna.UI2.WinForms.Guna2Button btnEsc;
+        private System.Windows.Forms.ImageList imglistBottoms;
+        private System.Windows.Forms.ImageList imglistOutwears;
+        private System.Windows.Forms.ImageList imglistDress;
     }
 }
