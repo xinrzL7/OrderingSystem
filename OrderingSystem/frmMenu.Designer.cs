@@ -248,7 +248,7 @@
             this.groupBox1.Controls.Add(this.rbtnPickup);
             this.groupBox1.Controls.Add(this.rbtnShipping);
             this.groupBox1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox1.Location = new System.Drawing.Point(574, 306);
+            this.groupBox1.Location = new System.Drawing.Point(581, 306);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(294, 121);
             this.groupBox1.TabIndex = 27;

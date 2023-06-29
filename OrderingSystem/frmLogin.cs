@@ -35,17 +35,19 @@ namespace OrderingSystem
             try
             {
                 con.Open();
-                string strSQL = "select Email, Password  from tbLogin where Email = @email and Password = @password";
+                string strSQL = "select * from tbMembers where Email = @email and Password = @password";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 cmd.Parameters.AddWithValue("@email", txtUsername.Text);
                 cmd.Parameters.AddWithValue("@password", txtPassword.Text);
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    MessageBox.Show("Log in Sucessfully!");
-                    this.Hide();
-                    frmMain main = new frmMain();
-                    main.ShowDialog();
+                    MessageBox.Show("Enjoy your shopping time!");
+                    frmHome home = new frmHome();
+                    string memberName = reader.GetString(reader.GetOrdinal("Name"));
+                    home.MemberName = memberName;
+                    reader.Close();
+                    home.ShowDialog();
                 }
                 else
                 {
@@ -59,7 +61,10 @@ namespace OrderingSystem
             finally
             {
                 if(con != null)
-                    con.Close();
+                { 
+                    con.Close(); 
+                }
+                this.Close();
             }
         }
 
