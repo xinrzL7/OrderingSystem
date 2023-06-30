@@ -16,9 +16,11 @@ namespace OrderingSystem
        SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
         string strDBConnectionString = "";
 
-        public frmLogin()
+        frmHome home;
+        public frmLogin(frmHome home)
         {
             InitializeComponent();
+            this.home = home;
         }
         private void frmLogin_Load(object sender, EventArgs e)
         {
@@ -26,7 +28,6 @@ namespace OrderingSystem
             scsb.InitialCatalog = "OnlineStore";
             scsb.IntegratedSecurity = true;
             strDBConnectionString = scsb.ConnectionString;
-
         }
         
         private void btnLogin_Click(object sender, EventArgs e)
@@ -42,15 +43,15 @@ namespace OrderingSystem
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    MessageBox.Show("Enjoy your shopping time!");
-                    frmHome home = new frmHome();
+                    MessageBox.Show("Enjoy your shopping time!", "Logged in successfully");
+                    //frmHome home = new frmHome();
                     string memberName = reader.GetString(reader.GetOrdinal("Name"));
                     int memberID = reader.GetInt32(reader.GetOrdinal("memberID"));
                     home.MemberName = memberName;
                     home.MemberID = memberID;
 
                     reader.Close();
-                    home.ShowDialog();
+                    this.Close();
                 }
                 else
                 {

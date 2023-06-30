@@ -37,6 +37,7 @@ namespace OrderingSystem
         int OrderTotalPrice = 0;
         string seletedItem = "";
         bool isShipping = false;
+        bool isShop = false;
         bool isFirstEvent = false;
         int intDelivery = 0;
         public string MemberName { get; set; }
@@ -58,9 +59,10 @@ namespace OrderingSystem
             ShowProducts();
             lvProducts.SelectedIndexChanged += lvProducts_SelectedIndexChanged;
             rbtnShop.Checked = true;
+            isShop = true;  
             rbtnShipping.Checked = false;
             isShipping = false;
-            lblmemberName.Text = $"Hi,\n{MemberName} !";
+            //lblmemberName.Text = $"Hi,\n{MemberName} !";
 
             //購物車資料表
             dtCart = new DataTable();
@@ -73,7 +75,8 @@ namespace OrderingSystem
             dgvCart.AutoResizeColumns();
             dgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCart.DataSource = dtCart;
-
+            //lblmemberName.Text = $"Hi,\n{MemberName}";
+            calOrderTotalPrice();
         }
 
         //讀取所有商品資料
@@ -130,33 +133,38 @@ namespace OrderingSystem
             if (lvProducts.SelectedItems.Count > 0)
             {
                 ODTotalPrice = selectedUnitPrice * selectedQuantity;
-                //todo 第一次下訂單按完後就不能再按
-                //if (isShipping)
-                //    ODTotalPrice += 60;
             }
             lbODlTotalPrice.Text = $"NT {ODTotalPrice}";
-
         }
 
-        //todo 要算全部訂單明細的加總
+        //全部訂單明細的加總
         void calOrderTotalPrice() 
         {
-            if (dtCart.Rows.Count > 0)
+            if (dgvCart.Rows.Count > 0)
             {
-                foreach (DataRow cRow in dtCart.Rows) 
-                {
-                    int unitPrice = Convert.ToInt32(cRow["UnitPrice"]);
-                    int quantity = Convert.ToInt32(cRow["Quantity"]);
-                    int subTotal = unitPrice * quantity;
-                    //每筆明細的加總額
-                     OrderTotalPrice += subTotal;
-                }
-                if (isShipping)
-                    OrderTotalPrice  += 60;
+                OrderTotalPrice += ODTotalPrice;
             }
             lblOrderTotalPrice.Text = $"NT {OrderTotalPrice}";
         }
-
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            frmLogin login = new frmLogin(this);
+            login.ShowDialog();
+            if (!string.IsNullOrEmpty(MemberName))
+            {
+                btnLogin.Visible = false;
+                btnSignout.Visible = true;
+                lblmemberName.Text = $"Hi,\n{MemberName}";
+            }
+        }
+        private void btnSignout_Click(object sender, EventArgs e)
+        {
+            lblmemberName.Text = "";
+            MemberName = "";
+            MemberID = 0;
+            btnLogin.Visible = true;
+            btnSignout.Visible = false;
+        }
 
         private void btnPlus_Click(object sender, EventArgs e)
         {
@@ -203,12 +211,26 @@ namespace OrderingSystem
 
         private void rbtnShipping_CheckedChanged(object sender, EventArgs e)
         {
-            isShipping = rbtnShipping.Checked;
-            calculateTotalPrice();
+            //+60運費
+            if (rbtnShipping.Checked && !isShipping)
+            {
+                OrderTotalPrice += 60;
+                lblOrderTotalPrice.Text = $"NT {OrderTotalPrice}";
+                isShipping = true;
+                isShop = false;
+            }
         }
-
-
-        
+        private void rbtnShop_CheckedChanged(object sender, EventArgs e)
+        {
+            //不用運費
+            if (rbtnShop.Checked && !isShop && isShipping)
+            {
+                OrderTotalPrice -= 60;
+                lblOrderTotalPrice.Text = $"NT {OrderTotalPrice}";
+                isShop = true; 
+                isShipping = false;
+            }
+        }
         private void btnCart_Click(object sender, EventArgs e)
         {
             if (lvProducts.SelectedItems.Count > 0)
@@ -238,6 +260,7 @@ namespace OrderingSystem
                     newRow["Quantity"] = selectedQuantity;
                     dtCart.Rows.Add(newRow);
                 }
+
                 // 清空左邊選擇的品項數量和價錢
                 lvProducts.SelectedItems.Clear();
                 selectedQuantity = 1;
@@ -251,79 +274,113 @@ namespace OrderingSystem
             {
                 int selectedIndex = dgvCart.SelectedRows[0].Index;
                 dtCart.Rows.RemoveAt(selectedIndex);
+                if (isShipping)
+                {
+                    OrderTotalPrice = 60; // 如果选择了宅配，则运费为60
+                }
+                else if (isShop)
+                {
+                    OrderTotalPrice = 0; // 如果选择了店取，则运费为0
+                }
+                calOrderTotalPrice();
             }
         }
 
-        //todo 結帳頁面!(可做可不做)
-        private void btnBuy_Click(object sender, EventArgs e)
-        {
-            if ((txtshipName.Text != "") && (txtShipAddr.Text != "") && (dtCart.Rows.Count > 0))
-            {
-                //購物車第一筆：新增訂單&訂單明細
-                SqlConnection con = new SqlConnection(strDBConnectionString);
-                con.Open();
-                //string email = MemberName;
-                //string sqlmemberID = "SELECT memberID FROM tbMembers WHERE Email = @email;";
-                //SqlCommand cmdMemberID = new SqlCommand(sqlmemberID, con);
-                //cmdMemberID.Parameters.AddWithValue("@email", email);
-                string sqlOrder = "insert into tbOrders values (@newMemberID, @newTotalPrice, @newOrderDate, @newShipVia, @newShipName, @shipAddress);";
-
-                SqlCommand cmd1 = new SqlCommand(sqlOrder, con);
-
-                cmd1.Parameters.AddWithValue("@newMemberID", MemberID);
-                int totalPrice = 0;
-                foreach (DataRow row in dtCart.Rows)
-                {
-                    int unitPrice = Convert.ToInt32(row["UnitPrice"]); 
-                    int quantity = Convert.ToInt32(row["Quantity"]);
-                    int subTotal = unitPrice * quantity; 
-                    //每筆明細的加總額
-                    totalPrice += subTotal;
-                }
-                cmd1.Parameters.AddWithValue("@newTotalPrice", totalPrice);
-                cmd1.Parameters.AddWithValue("@newOrderDate", DateTime.Now);
-                cmd1.Parameters.AddWithValue("@newShipVia", isShipping);
-                cmd1.Parameters.AddWithValue("@newShipName", txtshipName.Text);
-                cmd1.Parameters.AddWithValue("@shipAddress", txtShipAddr.Text);
-
-                int orderId = Convert.ToInt32(cmd1.ExecuteScalar());
-                int rows1 = cmd1.ExecuteNonQuery();
-              
-                MessageBox.Show($"訂單新增成功，{rows1}筆資料受影響");
-                //清空購物車的 DataTable
-                dtCart.Rows.Clear();
-
-                //insert OD
-                string sqlOD = "INSERT INTO tbOrderDetail (OrderID, ProductID, ProductName, UnitPrice, Quantity) VALUES (@OrderID, @ProductID, @ProductName, @UnitPrice, @Quantity);";
-                SqlCommand cmd2 = new SqlCommand(sqlOD, con);
-
-                foreach (DataRow row in dtCart.Rows)
-                {
-                    int productId = (int)row["ProductID"];
-                    string productName = (string)row["ProductName"];
-                    int unitPrice = (int)row["UnitPrice"];
-                    int quantity = (int)row["Quantity"];
-
-                    cmd2.Parameters.Clear();
-                    cmd2.Parameters.AddWithValue("@OrderID", orderId);
-                    cmd2.Parameters.AddWithValue("@ProductID", productId);
-                    cmd2.Parameters.AddWithValue("@ProductName", productName);
-                    cmd2.Parameters.AddWithValue("@UnitPrice", unitPrice);
-                    cmd2.Parameters.AddWithValue("@Quantity", quantity);
-
-                    int rows2 = cmd2.ExecuteNonQuery();
-                    MessageBox.Show($"訂單明細新增成功，{rows2}筆資料受影響");
-
-                }
-
-                con.Close();
-            }
-            else
-            {
-                MessageBox.Show("請確認購物車有內容物且收件人已填妥", "Error");
-            }
-
-        }
        
+
+
+        private void btnPurchase_Click(object sender, EventArgs e)
+        {
+            //有登入才能購買否則被遣返
+            if (MemberName != null)
+            {
+                if ((txtshipName.Text != "") && (txtShipAddr.Text != "") && (dtCart.Rows.Count > 0))
+                {
+                    //購物車第一筆：新增訂單
+                    SqlConnection con = new SqlConnection(strDBConnectionString);
+                    con.Open();
+
+                    string sqlOrder = "insert into tbOrders values (@oMemberID, @oTotalPrice, @oOrderDate, @oShipVia, @oShipName, @oAddress);";
+                    SqlCommand cmdInsertOrder = new SqlCommand(sqlOrder, con);
+
+                    cmdInsertOrder.Parameters.AddWithValue("@oMemberID", MemberID);
+                    int totalPrice = 0;
+                    foreach (DataRow row in dtCart.Rows)
+                    {
+                        int unitPrice = Convert.ToInt32(row["UnitPrice"]);
+                        int quantity = Convert.ToInt32(row["Quantity"]);
+                        int subTotal = unitPrice * quantity;
+
+                        totalPrice += subTotal;
+                    }
+                    if (isShipping)  //加運費
+                    {
+                        totalPrice += 60;
+                    }
+
+                    cmdInsertOrder.Parameters.AddWithValue("@oTotalPrice", totalPrice);
+                    cmdInsertOrder.Parameters.AddWithValue("@oOrderDate", DateTime.Now);
+                    cmdInsertOrder.Parameters.AddWithValue("@oShipVia", isShipping);
+                    cmdInsertOrder.Parameters.AddWithValue("@oShipName", txtshipName.Text);
+                    cmdInsertOrder.Parameters.AddWithValue("@oAddress", txtShipAddr.Text);
+                    int rowsInsertOrder= cmdInsertOrder.ExecuteNonQuery();
+                   int newOrderID = 0;
+                    if (rowsInsertOrder >0) 
+                    {
+                        //string sqlGetOrderID = "SELECT SCOPE_IDENTITY() From tbOrders;";
+                        string sqlGetOrderID = "SELECT MAX(OrderID) FROM tbOrders;";
+                        SqlCommand cmdGetOrderID = new SqlCommand(sqlGetOrderID, con);
+                        newOrderID = Convert.ToInt32(cmdGetOrderID.ExecuteScalar());
+                    }
+
+                    MessageBox.Show($"Thank for your purchase!", "Successfully");
+                    Console.WriteLine($"{rowsInsertOrder}筆資料受影響");
+
+
+                    //新增訂單明細內容
+                    string sqlOD = "insert into tbOrderDetail values (@OrderID, @ProductID, @ProductName, @UnitPrice, @Quantity);";
+                    SqlCommand cmdInsertOD = new SqlCommand(sqlOD, con);
+
+                    foreach (DataRow row in dtCart.Rows)
+                    {
+                        int productId = Convert.ToInt32(row["ProductID"]);
+                        string productName = Convert.ToString(row["ProductName"]);
+                        int unitPrice = Convert.ToInt32(row["UnitPrice"]);
+                        int quantity = Convert.ToInt32(row["Quantity"]);
+
+                        cmdInsertOD.Parameters.Clear();
+                        cmdInsertOD.Parameters.AddWithValue("@OrderID", newOrderID);
+                        cmdInsertOD.Parameters.AddWithValue("@ProductID", productId);
+                        cmdInsertOD.Parameters.AddWithValue("@ProductName", productName);
+                        cmdInsertOD.Parameters.AddWithValue("@UnitPrice", unitPrice);
+                        cmdInsertOD.Parameters.AddWithValue("@Quantity", quantity);
+
+                        int rows2 = cmdInsertOD.ExecuteNonQuery();
+                        Console.WriteLine($"訂單明細新增成功，{rows2}筆資料受影響");
+                    }
+                    con.Close();
+                    //清空購物車的 DataTable
+                    dtCart.Rows.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("請確認購物車有內容物且收件人已填妥", "Error");
+                }
+            }
+            else 
+            {
+                MessageBox.Show("Please log in or sign up.");
+                frmLogin login = new frmLogin(this);    
+                login.ShowDialog();
+                if (!string.IsNullOrEmpty(MemberName))
+                {
+                    btnLogin.Visible = false;
+                    btnSignout.Visible = true;
+                    lblmemberName.Text = $"Hi,\n{MemberName}";
+                }
+            }
+        }
+
+        
     }
 }
