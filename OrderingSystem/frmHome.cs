@@ -238,11 +238,11 @@ namespace OrderingSystem
                     newRow["Quantity"] = selectedQuantity;
                     dtCart.Rows.Add(newRow);
                 }
-                // 清空選取的品項資訊
+                // 清空左邊選擇的品項數量和價錢
                 lvProducts.SelectedItems.Clear();
                 selectedQuantity = 1;
                 txtQuantity.Text = selectedQuantity.ToString();
-                //calculateTotalPrice();
+                calOrderTotalPrice();
             }
         }
         private void btnDeleteCart_Click(object sender, EventArgs e)
