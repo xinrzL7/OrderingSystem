@@ -53,7 +53,7 @@ namespace OrderingSystem
                 string imageName = (string)reader["pimage"];
                 string FullProPicPath = strImageDir + "\\" + imageName;       //路徑+檔名
                 Image imgProduct = Image.FromFile(FullProPicPath);
-                imglistProduct.Images.Add(imgProduct);
+                imglistProducts.Images.Add(imgProduct);
                 count++;
             }
             reader.Close();
@@ -65,11 +65,11 @@ namespace OrderingSystem
         {
             lvShowProduct.Clear(); 
             lvShowProduct.View = View.LargeIcon; //LargeIcon(文字在圖下方), SmallIcon(文字在圖右方), List, 
-            imglistProduct.ImageSize = new Size(200, 200); //最大為一開始設定的(256, 256)
-            lvShowProduct.LargeImageList = imglistProduct;
-            lvShowProduct.SmallImageList = imglistProduct;  //建議可用於商品數量多時(min: 30x30)
+            imglistProducts.ImageSize = new Size(200, 200); //最大為一開始設定的(256, 256)
+            lvShowProduct.LargeImageList = imglistProducts;
+            lvShowProduct.SmallImageList = imglistProducts;  //建議可用於商品數量多時(min: 30x30)
             //商品資訊-用index
-            for (int i = 0; i < imglistProduct.Images.Count; i++)
+            for (int i = 0; i < imglistProducts.Images.Count; i++)
             {
                 ListViewItem item = new ListViewItem(); // listview的顯示單元
                 item.ImageIndex = i; //圖檔索引值對應
@@ -129,7 +129,7 @@ namespace OrderingSystem
             listPid.Clear();
             listProductName.Clear();
             listPrice.Clear();
-            imglistProduct.Images.Clear();
+            imglistProducts.Images.Clear();
             readProductDB();
 
             if (lvShowProduct.View == View.Details)
