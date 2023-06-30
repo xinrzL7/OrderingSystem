@@ -45,7 +45,10 @@ namespace OrderingSystem
                     MessageBox.Show("Enjoy your shopping time!");
                     frmHome home = new frmHome();
                     string memberName = reader.GetString(reader.GetOrdinal("Name"));
+                    int memberID = reader.GetInt32(reader.GetOrdinal("memberID"));
                     home.MemberName = memberName;
+                    home.MemberID = memberID;
+
                     reader.Close();
                     home.ShowDialog();
                 }

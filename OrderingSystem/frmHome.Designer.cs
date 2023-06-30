@@ -29,17 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDeleteCart = new Guna.UI2.WinForms.Guna2Button();
             this.lblmemberName = new System.Windows.Forms.Label();
-            this.lblTotalPrice = new System.Windows.Forms.Label();
+            this.lbODlTotalPrice = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.rbtnShipping = new System.Windows.Forms.RadioButton();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
+            this.rbtnShop = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCart = new Guna.UI2.WinForms.Guna2Button();
             this.btnPlus = new Guna.UI2.WinForms.Guna2Button();
@@ -50,15 +56,14 @@
             this.dgvCart = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuy = new Guna.UI2.WinForms.Guna2Button();
-            this.rbtnShop = new System.Windows.Forms.RadioButton();
-            this.rbtnShipping = new System.Windows.Forms.RadioButton();
             this.lvProducts = new System.Windows.Forms.ListView();
-            this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtshipName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtShipAddr = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblOrderTotalPrice = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +77,7 @@
             // 
             this.panel1.Controls.Add(this.btnDeleteCart);
             this.panel1.Controls.Add(this.lblmemberName);
-            this.panel1.Controls.Add(this.lblTotalPrice);
+            this.panel1.Controls.Add(this.lbODlTotalPrice);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.lblPrice);
             this.panel1.Controls.Add(this.label8);
@@ -82,12 +87,11 @@
             this.panel1.Controls.Add(this.btnPlus);
             this.panel1.Controls.Add(this.txtQuantity);
             this.panel1.Controls.Add(this.btnMinus);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.DimGray;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(251, 731);
+            this.panel1.Size = new System.Drawing.Size(251, 538);
             this.panel1.TabIndex = 40;
             // 
             // btnDeleteCart
@@ -102,7 +106,7 @@
             this.btnDeleteCart.FillColor = System.Drawing.Color.Gray;
             this.btnDeleteCart.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteCart.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteCart.Location = new System.Drawing.Point(36, 440);
+            this.btnDeleteCart.Location = new System.Drawing.Point(33, 477);
             this.btnDeleteCart.Name = "btnDeleteCart";
             this.btnDeleteCart.Size = new System.Drawing.Size(184, 33);
             this.btnDeleteCart.TabIndex = 54;
@@ -114,30 +118,30 @@
             this.lblmemberName.AutoSize = true;
             this.lblmemberName.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmemberName.ForeColor = System.Drawing.Color.DimGray;
-            this.lblmemberName.Location = new System.Drawing.Point(12, 33);
+            this.lblmemberName.Location = new System.Drawing.Point(28, 19);
             this.lblmemberName.Name = "lblmemberName";
             this.lblmemberName.Size = new System.Drawing.Size(38, 27);
             this.lblmemberName.TabIndex = 53;
             this.lblmemberName.Text = "Hi,";
             // 
-            // lblTotalPrice
+            // lbODlTotalPrice
             // 
-            this.lblTotalPrice.AutoSize = true;
-            this.lblTotalPrice.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalPrice.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPrice.Location = new System.Drawing.Point(77, 590);
-            this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(76, 24);
-            this.lblTotalPrice.TabIndex = 52;
-            this.lblTotalPrice.Text = "NT 000";
-            this.lblTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbODlTotalPrice.AutoSize = true;
+            this.lbODlTotalPrice.BackColor = System.Drawing.Color.Transparent;
+            this.lbODlTotalPrice.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbODlTotalPrice.Location = new System.Drawing.Point(94, 355);
+            this.lbODlTotalPrice.Name = "lbODlTotalPrice";
+            this.lbODlTotalPrice.Size = new System.Drawing.Size(76, 24);
+            this.lbODlTotalPrice.TabIndex = 52;
+            this.lbODlTotalPrice.Text = "NT 000";
+            this.lbODlTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 550);
+            this.label4.Location = new System.Drawing.Point(29, 315);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 24);
             this.label4.TabIndex = 51;
@@ -149,50 +153,87 @@
             this.lblPrice.AutoSize = true;
             this.lblPrice.BackColor = System.Drawing.Color.Transparent;
             this.lblPrice.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(97, 318);
+            this.lblPrice.Location = new System.Drawing.Point(94, 262);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(76, 24);
             this.lblPrice.TabIndex = 50;
             this.lblPrice.Text = "NT 000";
             this.lblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DimGray;
+            this.label3.Location = new System.Drawing.Point(654, 552);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 25);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "Delivery";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(32, 278);
+            this.label8.Location = new System.Drawing.Point(29, 222);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(101, 24);
             this.label8.TabIndex = 49;
             this.label8.Text = "Unit Price";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // rbtnShipping
+            // 
+            this.rbtnShipping.AutoSize = true;
+            this.rbtnShipping.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.rbtnShipping.ForeColor = System.Drawing.Color.DimGray;
+            this.rbtnShipping.Location = new System.Drawing.Point(659, 664);
+            this.rbtnShipping.Name = "rbtnShipping";
+            this.rbtnShipping.Size = new System.Drawing.Size(109, 28);
+            this.rbtnShipping.TabIndex = 26;
+            this.rbtnShipping.TabStop = true;
+            this.rbtnShipping.Text = "Shipping";
+            this.rbtnShipping.UseVisualStyleBackColor = true;
+            this.rbtnShipping.CheckedChanged += new System.EventHandler(this.rbtnShipping_CheckedChanged);
+            // 
             // btnLogin
             // 
             this.btnLogin.AutoRoundedCorners = true;
             this.btnLogin.BorderColor = System.Drawing.Color.Transparent;
-            this.btnLogin.BorderRadius = 23;
+            this.btnLogin.BorderRadius = 13;
             this.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnLogin.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.DimGray;
-            this.btnLogin.Location = new System.Drawing.Point(54, 680);
+            this.btnLogin.Location = new System.Drawing.Point(153, 65);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(147, 48);
+            this.btnLogin.Size = new System.Drawing.Size(95, 28);
             this.btnLogin.TabIndex = 39;
             this.btnLogin.Text = "Log out";
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // rbtnShop
+            // 
+            this.rbtnShop.AutoSize = true;
+            this.rbtnShop.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.rbtnShop.ForeColor = System.Drawing.Color.DimGray;
+            this.rbtnShop.Location = new System.Drawing.Point(659, 619);
+            this.rbtnShop.Name = "rbtnShop";
+            this.rbtnShop.Size = new System.Drawing.Size(75, 28);
+            this.rbtnShop.TabIndex = 27;
+            this.rbtnShop.TabStop = true;
+            this.rbtnShop.Text = "Shop";
+            this.rbtnShop.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(32, 175);
+            this.label2.Location = new System.Drawing.Point(29, 119);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 24);
             this.label2.TabIndex = 48;
@@ -210,7 +251,7 @@
             this.btnCart.FillColor = System.Drawing.Color.Gray;
             this.btnCart.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCart.ForeColor = System.Drawing.Color.White;
-            this.btnCart.Location = new System.Drawing.Point(36, 381);
+            this.btnCart.Location = new System.Drawing.Point(33, 418);
             this.btnCart.Name = "btnCart";
             this.btnCart.Size = new System.Drawing.Size(184, 33);
             this.btnCart.TabIndex = 37;
@@ -230,7 +271,7 @@
             this.btnPlus.FillColor = System.Drawing.Color.Transparent;
             this.btnPlus.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnPlus.ForeColor = System.Drawing.Color.DimGray;
-            this.btnPlus.Location = new System.Drawing.Point(166, 220);
+            this.btnPlus.Location = new System.Drawing.Point(163, 164);
             this.btnPlus.Name = "btnPlus";
             this.btnPlus.Size = new System.Drawing.Size(35, 33);
             this.btnPlus.TabIndex = 45;
@@ -240,7 +281,7 @@
             // txtQuantity
             // 
             this.txtQuantity.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.Location = new System.Drawing.Point(115, 223);
+            this.txtQuantity.Location = new System.Drawing.Point(112, 167);
             this.txtQuantity.Multiline = true;
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(45, 30);
@@ -259,7 +300,7 @@
             this.btnMinus.FillColor = System.Drawing.Color.Transparent;
             this.btnMinus.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnMinus.ForeColor = System.Drawing.Color.DimGray;
-            this.btnMinus.Location = new System.Drawing.Point(74, 220);
+            this.btnMinus.Location = new System.Drawing.Point(71, 164);
             this.btnMinus.Name = "btnMinus";
             this.btnMinus.Size = new System.Drawing.Size(35, 33);
             this.btnMinus.TabIndex = 44;
@@ -293,26 +334,49 @@
             // 
             // dgvCart
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSlateGray;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvCart.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvCart.AllowUserToAddRows = false;
+            this.dgvCart.AllowUserToResizeColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSlateGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvCart.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCart.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvCart.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCart.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCart.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCart.Location = new System.Drawing.Point(279, 589);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCart.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvCart.Location = new System.Drawing.Point(12, 589);
             this.dgvCart.Name = "dgvCart";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SlateGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCart.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SlateGray;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvCart.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCart.RowTemplate.Height = 24;
-            this.dgvCart.Size = new System.Drawing.Size(601, 124);
+            this.dgvCart.Size = new System.Drawing.Size(627, 124);
             this.dgvCart.TabIndex = 42;
             // 
             // label1
@@ -320,7 +384,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(274, 548);
+            this.label1.Location = new System.Drawing.Point(12, 552);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 25);
             this.label1.TabIndex = 43;
@@ -338,39 +402,12 @@
             this.btnBuy.FillColor = System.Drawing.Color.Gray;
             this.btnBuy.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuy.ForeColor = System.Drawing.Color.White;
-            this.btnBuy.Location = new System.Drawing.Point(1341, 639);
+            this.btnBuy.Location = new System.Drawing.Point(1355, 680);
             this.btnBuy.Name = "btnBuy";
             this.btnBuy.Size = new System.Drawing.Size(91, 33);
             this.btnBuy.TabIndex = 47;
             this.btnBuy.Text = "Buy";
             this.btnBuy.Click += new System.EventHandler(this.btnBuy_Click);
-            // 
-            // rbtnShop
-            // 
-            this.rbtnShop.AutoSize = true;
-            this.rbtnShop.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.rbtnShop.ForeColor = System.Drawing.Color.Black;
-            this.rbtnShop.Location = new System.Drawing.Point(899, 604);
-            this.rbtnShop.Name = "rbtnShop";
-            this.rbtnShop.Size = new System.Drawing.Size(75, 28);
-            this.rbtnShop.TabIndex = 27;
-            this.rbtnShop.TabStop = true;
-            this.rbtnShop.Text = "Shop";
-            this.rbtnShop.UseVisualStyleBackColor = true;
-            // 
-            // rbtnShipping
-            // 
-            this.rbtnShipping.AutoSize = true;
-            this.rbtnShipping.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.rbtnShipping.ForeColor = System.Drawing.Color.Black;
-            this.rbtnShipping.Location = new System.Drawing.Point(899, 664);
-            this.rbtnShipping.Name = "rbtnShipping";
-            this.rbtnShipping.Size = new System.Drawing.Size(109, 28);
-            this.rbtnShipping.TabIndex = 26;
-            this.rbtnShipping.TabStop = true;
-            this.rbtnShipping.Text = "Shipping";
-            this.rbtnShipping.UseVisualStyleBackColor = true;
-            this.rbtnShipping.CheckedChanged += new System.EventHandler(this.rbtnShipping_CheckedChanged);
             // 
             // lvProducts
             // 
@@ -382,28 +419,17 @@
             this.lvProducts.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lvProducts.Location = new System.Drawing.Point(279, 33);
             this.lvProducts.Name = "lvProducts";
-            this.lvProducts.Size = new System.Drawing.Size(1095, 501);
+            this.lvProducts.Size = new System.Drawing.Size(1095, 505);
             this.lvProducts.TabIndex = 50;
             this.lvProducts.UseCompatibleStateImageBehavior = false;
             this.lvProducts.SelectedIndexChanged += new System.EventHandler(this.lvProducts_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(894, 549);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 25);
-            this.label3.TabIndex = 51;
-            this.label3.Text = "Delivery";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(1047, 549);
+            this.label5.Location = new System.Drawing.Point(1016, 552);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 25);
             this.label5.TabIndex = 52;
@@ -414,10 +440,10 @@
             this.txtshipName.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtshipName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtshipName.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtshipName.Location = new System.Drawing.Point(1143, 606);
+            this.txtshipName.Location = new System.Drawing.Point(1112, 617);
             this.txtshipName.Multiline = true;
             this.txtshipName.Name = "txtshipName";
-            this.txtshipName.Size = new System.Drawing.Size(159, 30);
+            this.txtshipName.Size = new System.Drawing.Size(223, 30);
             this.txtshipName.TabIndex = 54;
             // 
             // label6
@@ -425,7 +451,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1048, 605);
+            this.label6.Location = new System.Drawing.Point(1017, 616);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 24);
             this.label6.TabIndex = 54;
@@ -437,7 +463,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1048, 668);
+            this.label7.Location = new System.Drawing.Point(1017, 679);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 24);
             this.label7.TabIndex = 55;
@@ -449,11 +475,35 @@
             this.txtShipAddr.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtShipAddr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtShipAddr.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtShipAddr.Location = new System.Drawing.Point(1143, 669);
+            this.txtShipAddr.Location = new System.Drawing.Point(1112, 680);
             this.txtShipAddr.Multiline = true;
             this.txtShipAddr.Name = "txtShipAddr";
-            this.txtShipAddr.Size = new System.Drawing.Size(159, 30);
+            this.txtShipAddr.Size = new System.Drawing.Size(223, 30);
             this.txtShipAddr.TabIndex = 56;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.DimGray;
+            this.label9.Location = new System.Drawing.Point(788, 552);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(165, 23);
+            this.label9.TabIndex = 57;
+            this.label9.Text = "Order Total price";
+            // 
+            // lblOrderTotalPrice
+            // 
+            this.lblOrderTotalPrice.AutoSize = true;
+            this.lblOrderTotalPrice.BackColor = System.Drawing.Color.Transparent;
+            this.lblOrderTotalPrice.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderTotalPrice.ForeColor = System.Drawing.Color.DimGray;
+            this.lblOrderTotalPrice.Location = new System.Drawing.Point(835, 637);
+            this.lblOrderTotalPrice.Name = "lblOrderTotalPrice";
+            this.lblOrderTotalPrice.Size = new System.Drawing.Size(76, 24);
+            this.lblOrderTotalPrice.TabIndex = 55;
+            this.lblOrderTotalPrice.Text = "NT 000";
+            this.lblOrderTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmHome
             // 
@@ -461,17 +511,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1444, 731);
+            this.Controls.Add(this.lblOrderTotalPrice);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.txtShipAddr);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtshipName);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.rbtnShipping);
-            this.Controls.Add(this.rbtnShop);
             this.Controls.Add(this.lvProducts);
             this.Controls.Add(this.btnBuy);
+            this.Controls.Add(this.rbtnShipping);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.rbtnShop);
             this.Controls.Add(this.dgvCart);
             this.Controls.Add(this.btnEsc);
             this.Controls.Add(this.panel1);
@@ -507,7 +559,7 @@
         private System.Windows.Forms.ListView lvProducts;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblTotalPrice;
+        private System.Windows.Forms.Label lbODlTotalPrice;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private System.Windows.Forms.Label lblmemberName;
@@ -518,5 +570,7 @@
         private System.Windows.Forms.TextBox txtshipName;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2Button btnDeleteCart;
+        private System.Windows.Forms.Label lblOrderTotalPrice;
+        private System.Windows.Forms.Label label9;
     }
 }

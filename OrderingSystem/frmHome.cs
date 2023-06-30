@@ -8,8 +8,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using Image = System.Drawing.Image;
+using View = System.Windows.Forms.View;
 
 namespace OrderingSystem
 {
@@ -20,7 +23,6 @@ namespace OrderingSystem
         string strDBConnectionString = "";
         string strImgDir = @"..\..\ProductImage"; //圖檔路徑
         private DataTable dtCart = new DataTable();  //購物車資料表
-        DataTable dtOrderDetails = new DataTable();
 
         //顯示商品用
         List<int> listProductID = new List<int>();
@@ -31,13 +33,15 @@ namespace OrderingSystem
 
         int selectedQuantity = 0;
         int selectedUnitPrice = 0;
-        int TotalPrice = 0;
-        int orderTotalPrice = 0;
+        int ODTotalPrice = 0;
+        int OrderTotalPrice = 0;
         string seletedItem = "";
         bool isShipping = false;
         bool isFirstEvent = false;
         int intDelivery = 0;
         public string MemberName { get; set; }
+        public int MemberID { get; set; }
+
 
         public frmHome()
         {
@@ -65,8 +69,11 @@ namespace OrderingSystem
             dtCart.Columns.Add("UnitPrice", typeof(int));
             dtCart.Columns.Add("Quantity", typeof(int));
             //dtCart.Columns.Add("odTotalPrice", typeof(int));
-
+            //調整欄寬
+            dgvCart.AutoResizeColumns();
+            dgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCart.DataSource = dtCart;
+
         }
 
         //讀取所有商品資料
@@ -87,7 +94,7 @@ namespace OrderingSystem
                 listUnitPrice.Add((int)reader["UnitPrice"]);
                 string ProductImgName = (string)reader["ProductImage"];
                 string FullImgPath = Path.Combine(strImgDir, ProductImgName);
-                Image imgProduct = Image.FromFile(FullImgPath); 
+                Image imgProduct = Image.FromFile(FullImgPath);
                 imglistProducts.Images.Add(imgProduct);
                 count++;
             }
@@ -118,17 +125,39 @@ namespace OrderingSystem
             lvProducts.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
-        void calculateTotalPrice() 
+        void calculateTotalPrice()
         {
             if (lvProducts.SelectedItems.Count > 0)
             {
-                TotalPrice = selectedUnitPrice * selectedQuantity;
-
-                if (isShipping) 
-                    TotalPrice += 60;
-                lblTotalPrice.Text = $"NT {TotalPrice}";
+                ODTotalPrice = selectedUnitPrice * selectedQuantity;
+                //todo 第一次下訂單按完後就不能再按
+                //if (isShipping)
+                //    ODTotalPrice += 60;
             }
+            lbODlTotalPrice.Text = $"NT {ODTotalPrice}";
+
         }
+
+        //todo 要算全部訂單明細的加總
+        void calOrderTotalPrice() 
+        {
+            if (dtCart.Rows.Count > 0)
+            {
+                foreach (DataRow cRow in dtCart.Rows) 
+                {
+                    int unitPrice = Convert.ToInt32(cRow["UnitPrice"]);
+                    int quantity = Convert.ToInt32(cRow["Quantity"]);
+                    int subTotal = unitPrice * quantity;
+                    //每筆明細的加總額
+                     OrderTotalPrice += subTotal;
+                }
+                if (isShipping)
+                    OrderTotalPrice  += 60;
+            }
+            lblOrderTotalPrice.Text = $"NT {OrderTotalPrice}";
+        }
+
+
         private void btnPlus_Click(object sender, EventArgs e)
         {
             selectedQuantity++;
@@ -150,13 +179,6 @@ namespace OrderingSystem
         {
             this.Close();
         }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            frmLogin login = new frmLogin();
-            login.ShowDialog();
-        }
-
         private void lvProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvProducts.SelectedItems.Count > 0)
@@ -169,13 +191,13 @@ namespace OrderingSystem
                 lblPrice.Text = $"NT {selectedUnitPrice}";
                 selectedQuantity = 1;
                 txtQuantity.Text = selectedQuantity.ToString();
-                calculateTotalPrice() ;
+                calculateTotalPrice();
                 // 使用取得的單價和品名稱進行後續處理
-               // Console.WriteLine($"選取的商品：{productName}，單價：{unitPrice}");
+                // Console.WriteLine($"選取的商品：{productName}，單價：{unitPrice}");
 
                 // 或將單價和品名稱存儲在全域變量中供其他方法使用
                 //selectedUnitPrice = unitPrice;
-               // seletedItem = productName;
+                // seletedItem = productName;
             }
         }
 
@@ -186,7 +208,7 @@ namespace OrderingSystem
         }
 
 
-       
+        
         private void btnCart_Click(object sender, EventArgs e)
         {
             if (lvProducts.SelectedItems.Count > 0)
@@ -232,31 +254,30 @@ namespace OrderingSystem
             }
         }
 
-
+        //todo 結帳頁面!(可做可不做)
         private void btnBuy_Click(object sender, EventArgs e)
         {
             if ((txtshipName.Text != "") && (txtShipAddr.Text != "") && (dtCart.Rows.Count > 0))
             {
-                // 執行 SQL 資料庫相關操作，將購物車的內容傳送至資料庫
+                //購物車第一筆：新增訂單&訂單明細
                 SqlConnection con = new SqlConnection(strDBConnectionString);
                 con.Open();
-                string email = MemberName;
-                string sqlmemberID = "SELECT memberID FROM tbMembers WHERE Email = @email;";
-                SqlCommand cmdMemberID = new SqlCommand(sqlmemberID, con);
-                cmdMemberID.Parameters.AddWithValue("@email", email);
-                int memberID = Convert.ToInt32(cmdMemberID.ExecuteScalar());
-
+                //string email = MemberName;
+                //string sqlmemberID = "SELECT memberID FROM tbMembers WHERE Email = @email;";
+                //SqlCommand cmdMemberID = new SqlCommand(sqlmemberID, con);
+                //cmdMemberID.Parameters.AddWithValue("@email", email);
                 string sqlOrder = "insert into tbOrders values (@newMemberID, @newTotalPrice, @newOrderDate, @newShipVia, @newShipName, @shipAddress);";
 
                 SqlCommand cmd1 = new SqlCommand(sqlOrder, con);
 
-                cmd1.Parameters.AddWithValue("@newMemberID", memberID);
+                cmd1.Parameters.AddWithValue("@newMemberID", MemberID);
                 int totalPrice = 0;
                 foreach (DataRow row in dtCart.Rows)
                 {
                     int unitPrice = Convert.ToInt32(row["UnitPrice"]); 
                     int quantity = Convert.ToInt32(row["Quantity"]);
                     int subTotal = unitPrice * quantity; 
+                    //每筆明細的加總額
                     totalPrice += subTotal;
                 }
                 cmd1.Parameters.AddWithValue("@newTotalPrice", totalPrice);
