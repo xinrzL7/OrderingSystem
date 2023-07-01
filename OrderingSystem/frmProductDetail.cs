@@ -91,15 +91,37 @@ namespace OrderingSystem
             }
         }
 
+        //商品名稱重複
+        private bool IsPNameExists(string PName)
+        {
+            bool exists = false;
+            SqlConnection con = new SqlConnection(strDBConnectionString);
+             con.Open();
+            string SQLSelect = "SELECT COUNT(*) FROM tbProducts WHERE ProductName = @productName";
+            SqlCommand cmdSelect = new SqlCommand(SQLSelect, con);
+            cmdSelect.Parameters.AddWithValue("@productName", PName);
+            int count = (int)cmdSelect.ExecuteScalar();
+            exists = count > 0;
+            return exists;
+        }
+        //偵測商品名稱重複->無法新增也不會重複存取的情況
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            try 
+            try
             {
                 if ((txtProductName.Text != "") && (txtProductPrice.Text != "") && (pboxProduct.Image != null))
                 {
+                    if (IsPNameExists(txtProductName.Text))
+                    {
+                        MessageBox.Show("商品名稱重複！","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        txtProductName.Clear();
+                        return;
+                    }
                     SqlConnection con = new SqlConnection(strDBConnectionString);
                     con.Open();
+
                     string SQLInsert = "insert into tbProducts values (@insertName,@insertPrice, @insertImg);";
+
                     SqlCommand cmdInsert = new SqlCommand(SQLInsert, con);
                     cmdInsert.Parameters.AddWithValue("@insertName", txtProductName.Text);
                     int insertPrice = 0;
@@ -120,10 +142,12 @@ namespace OrderingSystem
                         isEditImage = false;
                     }
                     MessageBox.Show($"新增成功，{rows}筆資料受影響");
+                    ClearTextBox();
+                    dgvShowtbProducts();
                 }
-                else 
+                else
                 {
-                    MessageBox.Show("所有欄位必填！","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    MessageBox.Show("所有欄位必填！", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
@@ -150,75 +174,110 @@ namespace OrderingSystem
         {
             ChooseImage();
         }
+
+        //名稱或價格是否有異動->沒有就顯示無資料異動
+        private bool IsPDetailChanged(string PName, int PPrice)
+        {
+            bool PDchanged = false;
+            SqlConnection con = new SqlConnection(strDBConnectionString);
+            con.Open();
+            string SQLSelect = "SELECT COUNT(*) FROM tbProducts WHERE ProductName = @productName AND UnitPrice = @price;";
+            SqlCommand cmdSelect = new SqlCommand(SQLSelect, con);
+            cmdSelect.Parameters.AddWithValue("@productName", PName);
+            Int32.TryParse(txtProductPrice.Text, out PPrice);
+            cmdSelect.Parameters.AddWithValue("@price", PPrice);
+
+            int count = (int)cmdSelect.ExecuteScalar();
+            PDchanged = count > 0;
+            return PDchanged;
+        }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if ((txtProductName.Text != "") && (txtProductPrice.Text != "")) 
+            try
             {
-                SqlConnection con = new SqlConnection(strDBConnectionString);
-                con.Open();
-
-                bool isImageUpdate = isEditImage;
-
-                string SQLUpdate = "update tbProducts set ProductName = @updateName, UnitPrice = @updatePrice";
-                if (isImageUpdate) 
+                if ((txtProductName.Text != "") && (txtProductPrice.Text != ""))
                 {
-                    SQLUpdate += " , ProductImage = @updateImg";
-                }
-                SQLUpdate += " where ProductID = @searchID";
-
-                SqlCommand cmdUpdate = new SqlCommand(SQLUpdate, con);
-                if (int.TryParse(txtProductID.Text, out selectID))
-                {
-                    cmdUpdate.Parameters.AddWithValue("@searchID", selectID);
-                    cmdUpdate.Parameters.AddWithValue("@updateName", txtProductName.Text);
-                    int updatePrice = 0;
-                    if (int.TryParse(txtProductPrice.Text, out updatePrice))
+                    int uPrice = 0;
+                    Int32.TryParse(txtProductPrice.Text, out uPrice);
+                    if (IsPDetailChanged(txtProductName.Text, uPrice))
                     {
-                        cmdUpdate.Parameters.AddWithValue("@updatePrice", updatePrice);
-                        if (isImageUpdate)
-                        {
-                            cmdUpdate.Parameters.AddWithValue("@updateImg", imgEditName);
-                        }
-                        int rows = cmdUpdate.ExecuteNonQuery();
-                        con.Close();
+                        MessageBox.Show("商品資訊未更改！", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    SqlConnection con = new SqlConnection(strDBConnectionString);
+                    con.Open();
 
-                        if (isImageUpdate)
+                    bool isImageUpdate = isEditImage;
+
+                    string SQLUpdate = "update tbProducts set ProductName = @updateName, UnitPrice = @updatePrice";
+                    if (isImageUpdate)
+                    {
+                        SQLUpdate += " , ProductImage = @updateImg";
+                    }
+                    SQLUpdate += " where ProductID = @searchID";
+
+                    SqlCommand cmdUpdate = new SqlCommand(SQLUpdate, con);
+                    if (int.TryParse(txtProductID.Text, out selectID))
+                    {
+                        cmdUpdate.Parameters.AddWithValue("@searchID", selectID);
+                        cmdUpdate.Parameters.AddWithValue("@updateName", txtProductName.Text);
+                        int updatePrice = 0;
+                        if (int.TryParse(txtProductPrice.Text, out updatePrice))
                         {
-                            string imagePath = Path.Combine(strImgDir, imgEditName);
-                            pboxProduct.Image.Save(imagePath);
-                            isEditImage = false;
+                            cmdUpdate.Parameters.AddWithValue("@updatePrice", updatePrice);
+                            if (isImageUpdate)
+                            {
+                                cmdUpdate.Parameters.AddWithValue("@updateImg", imgEditName);
+                            }
+                            int rows = cmdUpdate.ExecuteNonQuery();
+                            con.Close();
+
+                            if (isImageUpdate)
+                            {
+                                string imagePath = Path.Combine(strImgDir, imgEditName);
+                                pboxProduct.Image.Save(imagePath);
+                                isEditImage = false;
+                            }
+                            MessageBox.Show($"異動成功，{rows}筆資料受影響");
+                            ClearTextBox();
+                            dgvShowtbProducts();
                         }
-                        MessageBox.Show($"異動成功，{rows}筆資料受影響");
+                        else
+                        {
+                            MessageBox.Show("請輸入價錢！");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("請輸入價錢！");
+                        MessageBox.Show("所有欄位必填！");
                     }
                 }
-                else 
-                {
-                    MessageBox.Show("所有欄位必填！");
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex);
             }
         }
 
-
-        void ClearAndRefresh() 
+        
+        void ClearTextBox() 
         {
             txtProductID.Clear();
             txtProductName.Clear();
             txtProductPrice.Clear();
             pboxProduct.Image = null;
         }
+
         //從資料庫或從程式異動資料重整後皆可更新內容
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            ClearAndRefresh();
-            dgvShowtbProducts();  //重新讀取資料庫的資料
+            ClearTextBox();
+            dgvShowtbProducts();
         }
+
         private void btnClear_Click(object sender, EventArgs e)
         {
-            ClearAndRefresh();
+            ClearTextBox();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -240,9 +299,10 @@ namespace OrderingSystem
                         int rows = cmdDelete.ExecuteNonQuery();
                         con.Close();
                         MessageBox.Show($"刪除成功，{rows}筆資料受影響");
+                        //重整
+                        ClearTextBox();
+                        dgvShowtbProducts();
                     }
-                    else
-                        MessageBox.Show("商品ID錯誤");
                 }
             }
             catch (Exception ex)

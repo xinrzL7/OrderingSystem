@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,6 +47,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnNewMember = new Guna.UI2.WinForms.Guna2Button();
             this.btnEsc = new Guna.UI2.WinForms.Guna2Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,18 +56,6 @@
             // 
             this.guna2Elipse1.BorderRadius = 30;
             this.guna2Elipse1.TargetControl = this;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(187, 565);
-            this.txtPassword.Multiline = true;
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(288, 36);
-            this.txtPassword.TabIndex = 9;
-            this.txtPassword.Text = "8碼－生日4碼+電話4碼";
             // 
             // txtEmail
             // 
@@ -233,7 +222,7 @@
             this.btnNewMember.FillColor = System.Drawing.Color.DarkGray;
             this.btnNewMember.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewMember.ForeColor = System.Drawing.Color.White;
-            this.btnNewMember.Location = new System.Drawing.Point(202, 636);
+            this.btnNewMember.Location = new System.Drawing.Point(192, 648);
             this.btnNewMember.Name = "btnNewMember";
             this.btnNewMember.Size = new System.Drawing.Size(116, 49);
             this.btnNewMember.TabIndex = 22;
@@ -259,12 +248,36 @@
             this.btnEsc.Text = "X";
             this.btnEsc.Click += new System.EventHandler(this.btnEsc_Click);
             // 
+            // txtPassword
+            // 
+            this.txtPassword.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(187, 565);
+            this.txtPassword.Multiline = true;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(288, 36);
+            this.txtPassword.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label9.ForeColor = System.Drawing.Color.Silver;
+            this.label9.Location = new System.Drawing.Point(210, 604);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(240, 20);
+            this.label9.TabIndex = 43;
+            this.label9.Text = "共8碼：生日日期4碼+手機後4碼";
+            // 
             // frmSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(514, 709);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.btnEsc);
             this.Controls.Add(this.btnNewMember);
             this.Controls.Add(this.label8);
@@ -296,7 +309,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -314,5 +326,7 @@
         private System.Windows.Forms.TextBox txtPhone;
         private Guna.UI2.WinForms.Guna2Button btnNewMember;
         private Guna.UI2.WinForms.Guna2Button btnEsc;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtPassword;
     }
 }

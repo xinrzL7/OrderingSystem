@@ -53,7 +53,7 @@
             this.btnLogin.FillColor = System.Drawing.Color.Transparent;
             this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.DimGray;
-            this.btnLogin.Location = new System.Drawing.Point(401, 314);
+            this.btnLogin.Location = new System.Drawing.Point(400, 350);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(107, 45);
             this.btnLogin.TabIndex = 0;
@@ -64,17 +64,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(316, 94);
+            this.label1.Location = new System.Drawing.Point(315, 130);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 33);
+            this.label1.Size = new System.Drawing.Size(240, 33);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Email";
+            this.label1.Text = "Username(email)";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(316, 208);
+            this.label2.Location = new System.Drawing.Point(315, 244);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(138, 33);
             this.label2.TabIndex = 3;
@@ -85,7 +85,7 @@
             this.txtEmail.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(322, 141);
+            this.txtEmail.Location = new System.Drawing.Point(321, 177);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(260, 36);
@@ -96,7 +96,7 @@
             this.txtPassword.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(322, 258);
+            this.txtPassword.Location = new System.Drawing.Point(321, 294);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(260, 36);

@@ -372,14 +372,15 @@ namespace OrderingSystem
             else 
             {
                 MessageBox.Show("Please log in or sign up.");
-                frmLogin login = new frmLogin(this);    
-                login.ShowDialog();
-                if (!string.IsNullOrEmpty(MemberName))
-                {
-                    btnLogin.Visible = false;
-                    btnSignout.Visible = true;
-                    lblmemberName.Text = $"Hi,\n{MemberName}";
-                }
+                //frmLogin login = new frmLogin(this);    
+                //login.ShowDialog();
+                //if (!string.IsNullOrEmpty(MemberName))
+                //if (MemberName != "")
+                //{
+                //    btnLogin.Visible = false;
+                //    btnSignout.Visible = true;
+                //    lblmemberName.Text = $"Hi,\n{MemberName}";
+                //}
             }
         }
 
