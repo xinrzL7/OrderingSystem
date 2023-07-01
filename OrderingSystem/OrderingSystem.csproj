@@ -53,12 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAdmin.Designer.cs">
-      <DependentUpon>frmAdmin.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,35 +65,17 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmMember.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMember.Designer.cs">
       <DependentUpon>frmMember.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMenu.Designer.cs">
-      <DependentUpon>frmMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmProductDetail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmProductDetail.Designer.cs">
       <DependentUpon>frmProductDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmProductMaintain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmProductMaintain.Designer.cs">
-      <DependentUpon>frmProductMaintain.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSignUp.cs">
       <SubType>Form</SubType>
@@ -110,29 +86,20 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility.cs" />
-    <EmbeddedResource Include="frmAdmin.resx">
-      <DependentUpon>frmAdmin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmMember.resx">
       <DependentUpon>frmMember.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMenu.resx">
-      <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProductDetail.resx">
       <DependentUpon>frmProductDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProductMaintain.resx">
-      <DependentUpon>frmProductMaintain.cs</DependentUpon>
+    <EmbeddedResource Include="frmSignUp.resx">
+      <DependentUpon>frmSignUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
