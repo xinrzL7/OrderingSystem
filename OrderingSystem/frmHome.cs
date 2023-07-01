@@ -153,6 +153,7 @@ namespace OrderingSystem
             if (!string.IsNullOrEmpty(MemberName))
             {
                 btnLogin.Visible = false;
+                btnSignup.Visible = false;
                 btnSignout.Visible = true;
                 lblmemberName.Text = $"Hi,\n{MemberName}";
             }
@@ -163,6 +164,7 @@ namespace OrderingSystem
             MemberName = "";
             MemberID = 0;
             btnLogin.Visible = true;
+            btnSignup.Visible = true;
             btnSignout.Visible = false;
         }
 
@@ -381,6 +383,10 @@ namespace OrderingSystem
             }
         }
 
-        
+        private void btnSignup_Click(object sender, EventArgs e)
+        {
+            frmSignUp signup= new frmSignUp(this);
+            signup.ShowDialog();
+        }
     }
 }

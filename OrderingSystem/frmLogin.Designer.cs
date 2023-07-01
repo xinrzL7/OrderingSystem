@@ -29,17 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnSignup = new Guna.UI2.WinForms.Guna2Button();
             this.btnEsc = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,17 +60,6 @@
             this.btnLogin.Text = "Log in";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(272, 513);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -94,16 +80,16 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Password";
             // 
-            // txtUsername
+            // txtEmail
             // 
-            this.txtUsername.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUsername.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(322, 141);
-            this.txtUsername.Multiline = true;
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(260, 36);
-            this.txtUsername.TabIndex = 4;
+            this.txtEmail.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(322, 141);
+            this.txtEmail.Multiline = true;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(260, 36);
+            this.txtEmail.TabIndex = 4;
             // 
             // txtPassword
             // 
@@ -120,38 +106,6 @@
             // 
             this.guna2Elipse1.BorderRadius = 30;
             this.guna2Elipse1.TargetControl = this;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(387, 432);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 21);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Not a member? ";
-            // 
-            // btnSignup
-            // 
-            this.btnSignup.AutoRoundedCorners = true;
-            this.btnSignup.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSignup.BorderRadius = 21;
-            this.btnSignup.BorderThickness = 1;
-            this.btnSignup.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSignup.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSignup.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSignup.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSignup.FillColor = System.Drawing.Color.Transparent;
-            this.btnSignup.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnSignup.ForeColor = System.Drawing.Color.DarkGray;
-            this.btnSignup.Location = new System.Drawing.Point(401, 456);
-            this.btnSignup.Name = "btnSignup";
-            this.btnSignup.Size = new System.Drawing.Size(107, 45);
-            this.btnSignup.TabIndex = 8;
-            this.btnSignup.Text = "Sign up";
-            this.btnSignup.Click += new System.EventHandler(this.btnSignup_Click);
             // 
             // btnEsc
             // 
@@ -172,6 +126,17 @@
             this.btnEsc.Text = "X";
             this.btnEsc.Click += new System.EventHandler(this.btnEsc_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::OrderingSystem.Properties.Resources.Login1;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(272, 513);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -179,10 +144,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(615, 513);
             this.Controls.Add(this.btnEsc);
-            this.Controls.Add(this.btnSignup);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -203,11 +166,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPassword;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private Guna.UI2.WinForms.Guna2Button btnSignup;
-        private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Button btnEsc;
     }
 }

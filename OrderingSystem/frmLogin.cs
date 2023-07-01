@@ -38,7 +38,7 @@ namespace OrderingSystem
                 con.Open();
                 string strSQL = "select * from tbMembers where Email = @email and Password = @password";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
-                cmd.Parameters.AddWithValue("@email", txtUsername.Text);
+                cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@password", txtPassword.Text);
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
@@ -75,15 +75,6 @@ namespace OrderingSystem
         private void btnEsc_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnSignup_Click(object sender, EventArgs e)
-        {
-            //會員表單
-
-            frmSignUp signup = new frmSignUp();
-            signup.ShowDialog();
-            
         }
     }
 }

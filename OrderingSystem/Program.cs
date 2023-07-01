@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace OrderingSystem
@@ -16,7 +17,7 @@ namespace OrderingSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmProductDetail()) ;
+            Application.Run(new frmHome()) ;
         }
     }
 }
