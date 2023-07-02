@@ -78,6 +78,7 @@ namespace OrderingSystem
                 {
                     frmAdmin ad = new frmAdmin();
                     this.Hide();  // 隱藏 frmLogin 表單
+                    home.Hide();
                     ad.ShowDialog();
                 }
                 else
@@ -92,16 +93,15 @@ namespace OrderingSystem
                     {
                         string memberName = reader.GetString(reader.GetOrdinal("Name"));
                         int memberID = reader.GetInt32(reader.GetOrdinal("memberID"));
-                        reader.Close();
 
-                        MessageBox.Show("Enjoy your shopping time!", "Successfully");
+                        MessageBox.Show("登入成功！","",MessageBoxButtons.OK,MessageBoxIcon.Information);
                         home.MemberName = memberName;
                         home.MemberID = memberID;
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Please enter the correct username or password.", "Error");
+                        MessageBox.Show("請輸入正確的帳號或密碼！", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     reader.Close();
                 }

@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-//todo 排版
 namespace OrderingSystem
 {
     public partial class frmAdmin : Form

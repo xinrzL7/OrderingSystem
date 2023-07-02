@@ -15,11 +15,11 @@ namespace OrderingSystem
     {
         SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
         string strDBConnectionString = "";
-        List<int> searchResultIDs = new List<int>();
-        string sqltbOrders = "select * from tbOrders;";
-        int selectedQuantity = 0;
-        int ODTotalPrice = 0;
-        int selectedUnitPrice = 0;
+        //List<int> searchResultIDs = new List<int>();
+        //string sqltbOrders = "select * from tbOrders;";
+        //int selectedQuantity = 0;
+        //int ODTotalPrice = 0;
+        //int selectedUnitPrice = 0;
 
         public frmOrderManagement()
         {
@@ -96,7 +96,6 @@ namespace OrderingSystem
                         SqlCommand cmd2 = new SqlCommand(sqlODdelete, con);
                         cmd2.Parameters.AddWithValue("@DeleteID", intOID);
                         int rows2 = cmd2.ExecuteNonQuery();
-                        MessageBox.Show($"訂單明細刪除成功，{rows2}筆資料受影響");
                     }
 
                     con.Close();
@@ -151,7 +150,7 @@ namespace OrderingSystem
                     }
                     else
                     {
-                        MessageBox.Show("No order details found.", "Try Again");
+                        MessageBox.Show("沒有此筆訂單", "Try Again");
                         dgvOD.DataSource = null;
                     }
                     readerOD.Close();
@@ -160,7 +159,7 @@ namespace OrderingSystem
                 }
                 else
                 {
-                    MessageBox.Show("No order record.", "Try Again");
+                    MessageBox.Show("沒有此筆訂單", "Try Again");
                     ClearAll();
                 }
                 reader.Close();

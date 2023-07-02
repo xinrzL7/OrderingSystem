@@ -48,7 +48,7 @@ namespace OrderingSystem
                 if (emailCount > 0)
                 {
                     con.Close();
-                    MessageBox.Show("該 Email 已被使用，請選擇其他 Email");
+                    MessageBox.Show("該 Email 已被使用，請選擇其他 Email！", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -60,7 +60,7 @@ namespace OrderingSystem
                 if (passwordCount > 0)
                 {
                     con.Close();
-                    MessageBox.Show("該密碼已被使用，請選擇其他密碼");
+                    MessageBox.Show("該密碼已被使用，請選擇其他密碼！","Error",MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -71,7 +71,7 @@ namespace OrderingSystem
                 if (txtPassword.Text != passwordCondition)
                 {
                     con.Close();
-                    MessageBox.Show("密碼條件不符合，請依照生日日期後4碼+手機後4碼的格式輸入密碼");
+                    MessageBox.Show("請依照生日日期4碼+手機號碼後4碼的格式輸入密碼！","Error",MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 string strSQL = "insert into tbMembers values (@newName, @newBirth, @newPhone, @newEmail, @newPassword,  @newAddress)";
@@ -85,15 +85,16 @@ namespace OrderingSystem
 
                 int rows = cmd.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show($"會員資料新增成功");
+                MessageBox.Show($"註冊成功！","",MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Console.WriteLine($"{rows}筆資料受影響");
+                home.Show();
+                this.Close();
             }
             else
             {
                 MessageBox.Show("資料皆必填！");
             }
-            home.Show();
-            this.Close();
+            
         }
 
         private void btnEsc_Click(object sender, EventArgs e)

@@ -25,29 +25,27 @@ namespace OrderingSystem
 
         SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
         string strDBConnectionString = "";
-        string strImgDir = @"..\..\ProductImage"; //圖檔路徑
-        private DataTable dtCart = new DataTable();  //購物車資料表
+        string strImgDir = @"..\..\ProductImage"; 
+        private DataTable dtCart = new DataTable();  
 
         //顯示商品用
         List<int> listProductID = new List<int>();
         List<string> listProductName = new List<string>();
         List<int> listUnitPrice = new List<int>();
         //訂單
-        List<string> listItem = new List<string>();
+        //List<string> listItem = new List<string>();
 
         int selectedQuantity = 0;
         int selectedUnitPrice = 0;
         int ODTotalPrice = 0;
         int OrderTotalPrice = 0;
-        string seletedItem = "";
+        //string seletedItem = "";
         bool isShipping = false;
         bool isShop = false;
-        bool isFirstEvent = false;
-        int intDelivery = 0;
+        //bool isFirstEvent = false;
+        //int intDelivery = 0;
         public string MemberName { get; set; }
         public int MemberID { get; set; }
-
-
         public frmHome()
         {
             InitializeComponent();
@@ -66,7 +64,6 @@ namespace OrderingSystem
             isShop = true;  
             rbtnShipping.Checked = false;
             isShipping = false;
-            //lblmemberName.Text = $"Hi,\n{MemberName} !";
 
             //購物車資料表
             dtCart = new DataTable();
@@ -74,12 +71,9 @@ namespace OrderingSystem
             dtCart.Columns.Add("ProductName", typeof(string));
             dtCart.Columns.Add("UnitPrice", typeof(int));
             dtCart.Columns.Add("Quantity", typeof(int));
-            //dtCart.Columns.Add("odTotalPrice", typeof(int));
-            //調整欄寬
             dgvCart.AutoResizeColumns();
             dgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCart.DataSource = dtCart;
-            //lblmemberName.Text = $"Hi,\n{MemberName}";
             calOrderTotalPrice();
         }
 
@@ -94,7 +88,7 @@ namespace OrderingSystem
 
             int count = 0;
             //資料庫的資料傳到list裡
-            while (reader.Read() == true)
+            while (reader.Read())
             {
                 listProductID.Add((int)reader["ProductID"]);
                 listProductName.Add((string)reader["ProductName"]);
@@ -124,7 +118,7 @@ namespace OrderingSystem
             {
                 ListViewItem item = new ListViewItem(); 
                 item.ImageIndex = i; 
-                item.Text = $"{listProductName[i]}\nNT{listUnitPrice[i]}"; 
+                item.Text = $"{listProductName[i]}\nNT {listUnitPrice[i]}"; 
                 item.Font = new Font("Century Gothic", 14, FontStyle.Regular);
                 item.Tag = listProductID[i]; 
                 lvProducts.Items.Add(item);
@@ -165,7 +159,7 @@ namespace OrderingSystem
         private void btnSignout_Click(object sender, EventArgs e)
         {
             lblmemberName.Text = "";
-            MemberName = "";
+            MemberName = null;  
             MemberID = 0;
             btnLogin.Visible = true;
             btnSignup.Visible = true;
@@ -206,12 +200,7 @@ namespace OrderingSystem
                 selectedQuantity = 1;
                 txtQuantity.Text = selectedQuantity.ToString();
                 calculateTotalPrice();
-                // 使用取得的單價和品名稱進行後續處理
-                // Console.WriteLine($"選取的商品：{productName}，單價：{unitPrice}");
-
-                // 或將單價和品名稱存儲在全域變量中供其他方法使用
-                //selectedUnitPrice = unitPrice;
-                // seletedItem = productName;
+                
             }
         }
 
@@ -385,16 +374,7 @@ namespace OrderingSystem
             }
             else 
             {
-                MessageBox.Show("Please log in or sign up.");
-                //frmLogin login = new frmLogin(this);    
-                //login.ShowDialog();
-                //if (!string.IsNullOrEmpty(MemberName))
-                //if (MemberName != "")
-                //{
-                //    btnLogin.Visible = false;
-                //    btnSignout.Visible = true;
-                //    lblmemberName.Text = $"Hi,\n{MemberName}";
-                //}
+                MessageBox.Show("請登入或註冊！", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

@@ -32,6 +32,7 @@ namespace OrderingSystem
             scsb.IntegratedSecurity = true;
             strDBConnectionString = scsb.ConnectionString;
 
+            
             cboxSearch.Items.Add("Name");
             cboxSearch.Items.Add("Phone");
             cboxSearch.Items.Add("Email");
@@ -107,7 +108,7 @@ namespace OrderingSystem
         {
             int intID = 0;
             Int32.TryParse(txtMemberID.Text, out intID);
-            if ((intID > 0) && (txtMemberName.Text != "") && (txtPhone.Text != ""))
+            if ((intID > 0) && (txtMemberName.Text != "") && (txtPhone.Text != "") && (txtPhone.Text.Length == 10))
             {
                 SqlConnection con = new SqlConnection(strDBConnectionString);
                 con.Open();
@@ -125,6 +126,11 @@ namespace OrderingSystem
                 con.Close();
                 MessageBox.Show($"會員資料已修改，{rows}筆資料受影響");
                 dgvMemberShow();
+            }
+            else
+            {
+                MessageBox.Show("請確認輸入正確的電話號碼（10碼）", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
@@ -205,7 +211,7 @@ namespace OrderingSystem
                 if (txtPassword.Text != passwordCondition)
                 {
                     con.Close();
-                    MessageBox.Show("密碼條件不符合，請依照生日日期後4碼+手機後4碼的格式輸入密碼");
+                    MessageBox.Show("密碼條件不符合，請依照生日日期後4碼+手機後4碼的格式輸入密碼","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -236,19 +242,33 @@ namespace OrderingSystem
             if (R == DialogResult.Yes)
             {
                 int intID = 0;
-                Int32.TryParse(txtMemberID.Text, out intID);
-                if (intID > 0)
+               
+                if (Int32.TryParse(txtMemberID.Text, out intID) && intID > 0)
                 {
                     SqlConnection con = new SqlConnection(strDBConnectionString);
                     con.Open();
+
+                    // 刪除相關的訂單資料
+                    string deleteOrdersSQL = "DELETE FROM tbOrders WHERE memberID = @MemberID";
+                    SqlCommand deleteOrdersCmd = new SqlCommand(deleteOrdersSQL, con);
+                    deleteOrdersCmd.Parameters.AddWithValue("@MemberID", intID);
+                    deleteOrdersCmd.ExecuteNonQuery();
+
                     string strSQL = "delete from tbMembers where memberID = @DeleteID;";
                     SqlCommand cmd = new SqlCommand(strSQL, con);
                     cmd.Parameters.AddWithValue("@DeleteID", intID);
                     int rows = cmd.ExecuteNonQuery();
                     con.Close();
+
                     ClearAll();
                     dgvMemberShow();
-                    MessageBox.Show($"會員資料新增成功，{rows}筆資料受影響");
+                    MessageBox.Show($"會員資料刪除成功，{rows}筆資料受影響");
+
+                    
+                }
+                else
+                {
+                    MessageBox.Show("請輸入有效的會員ID！", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -284,7 +304,7 @@ namespace OrderingSystem
                     }
                     else
                     {
-                        MessageBox.Show("No such person.","Try  Again");
+                        MessageBox.Show("查無此人！","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                         ClearAll();
                     }
                     reader.Close();
@@ -300,47 +320,35 @@ namespace OrderingSystem
                 lboxResult.Items.Clear();
                 searchResultIDs.Clear();  
                 string strCBOXsearch = cboxSearch.SelectedItem.ToString().ToLower();
-                string sqlSearchID = "select * from tbMembers where memberID = @searchID;";
+                //string sqlSearchID = "select * from tbMembers where memberID = @searchID;";
 
                 SqlConnection con = new SqlConnection(strDBConnectionString);
                 con.Open();
 
-                string strSQL = $"select * from tbMembers where (Birth between @BirthStart and @BirthEnd) OR {strCBOXsearch} like @searchKeyword;";
-                if (cboxSearch.SelectedItem.ToString().ToLower() == "id")
-                {
-                    strSQL = sqlSearchID;
-                }
+                string strSQL = $"select * from tbMembers where (Birth between @BirthStart and @BirthEnd) and {strCBOXsearch} like @searchKeyword;";
+                
                 SqlCommand cmd = new SqlCommand(strSQL, con);
-
-                if (cboxSearch.SelectedItem.ToString().ToLower() == "id")
-                {
-                    int intID = 0;
-                    Int32.TryParse(txtKeyword.Text, out intID);
-                    cmd.Parameters.AddWithValue("@searchID", intID);
-                }
-
                 cmd.Parameters.AddWithValue("@searchKeyword", $"%{txtKeyword.Text}%");
                 cmd.Parameters.AddWithValue("@BirthStart", dtpBirthStart.Value);
                 cmd.Parameters.AddWithValue("@BirthEnd", dtpBirthEnd.Value);
-
+                
                 SqlDataReader reader = cmd.ExecuteReader();
                 int count = 0;
                 while (reader.Read())
                 {
                     searchResultIDs.Add((int)reader["memberID"]);
-                    //todo 要呈現名字和ID就好?
-                    lboxResult.Items.Add($"{reader["memberID"]} - {reader["Name"]}");
+                    lboxResult.Items.Add($"{reader["memberID"]}  {reader["Name"]}");
                     count++;
                 }
                 if (count == 0)
-                    MessageBox.Show("No such person.", "Try  Again");
+                    MessageBox.Show("查無此人！", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 reader.Close();
                 con.Close();
             }
             else
             {
-                MessageBox.Show("Please input a word or select birthdate.", "Try  Again");
+                MessageBox.Show("請輸入其他搜尋條件！", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
