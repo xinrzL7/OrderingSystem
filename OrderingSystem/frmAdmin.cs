@@ -47,7 +47,9 @@ namespace OrderingSystem
 
         private void btnOM_Click(object sender, EventArgs e)
         {
-
+            frmOrderManagement om = new frmOrderManagement();
+            om.ShowDialog();
         }
+        
     }
 }

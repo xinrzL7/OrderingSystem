@@ -116,17 +116,17 @@ namespace OrderingSystem
         {
             lvProducts.Clear();
             lvProducts.View = View.List;
-            imglistProducts.ImageSize = new Size(200, 200); //最大為一開始設定的(256, 256)
+            imglistProducts.ImageSize = new Size(200, 200);
             lvProducts.LargeImageList = imglistProducts;
             lvProducts.SmallImageList = imglistProducts;
             //商品資訊-用index
             for (int i = 0; i < listProductID.Count; i++)
             {
-                ListViewItem item = new ListViewItem(); // listview的顯示單元
-                item.ImageIndex = i; //圖檔索引值對應
-                item.Text = $"{listProductName[i]}\nNT{listUnitPrice[i]}"; //文字索引值對應
+                ListViewItem item = new ListViewItem(); 
+                item.ImageIndex = i; 
+                item.Text = $"{listProductName[i]}\nNT{listUnitPrice[i]}"; 
                 item.Font = new Font("Century Gothic", 14, FontStyle.Regular);
-                item.Tag = listProductID[i]; //Tag：不顯示但可保留(儲存資訊)－常用來藏id
+                item.Tag = listProductID[i]; 
                 lvProducts.Items.Add(item);
             }
             lvProducts.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);

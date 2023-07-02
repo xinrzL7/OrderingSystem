@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.pboxProduct = new System.Windows.Forms.PictureBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtProductPrice = new System.Windows.Forms.TextBox();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.txtProductID = new System.Windows.Forms.TextBox();
@@ -46,56 +45,57 @@
             this.btnInsert = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnEsc = new Guna.UI2.WinForms.Guna2Button();
+            this.btnClear = new Guna.UI2.WinForms.Guna2Button();
             this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.btnImage = new Guna.UI2.WinForms.Guna2Button();
-            this.btnClear = new Guna.UI2.WinForms.Guna2Button();
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxProduct)).BeginInit();
+            this.pboxProduct = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductAll)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxProduct)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pboxProduct
-            // 
-            this.pboxProduct.Location = new System.Drawing.Point(44, 49);
-            this.pboxProduct.Name = "pboxProduct";
-            this.pboxProduct.Size = new System.Drawing.Size(284, 284);
-            this.pboxProduct.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pboxProduct.TabIndex = 22;
-            this.pboxProduct.TabStop = false;
             // 
             // txtProductPrice
             // 
-            this.txtProductPrice.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductPrice.Location = new System.Drawing.Point(158, 468);
+            this.txtProductPrice.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtProductPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtProductPrice.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductPrice.ForeColor = System.Drawing.Color.Black;
+            this.txtProductPrice.Location = new System.Drawing.Point(113, 468);
             this.txtProductPrice.Name = "txtProductPrice";
-            this.txtProductPrice.Size = new System.Drawing.Size(170, 33);
+            this.txtProductPrice.Size = new System.Drawing.Size(76, 24);
             this.txtProductPrice.TabIndex = 20;
             // 
             // txtProductName
             // 
-            this.txtProductName.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductName.Location = new System.Drawing.Point(158, 413);
+            this.txtProductName.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtProductName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtProductName.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductName.ForeColor = System.Drawing.Color.Black;
+            this.txtProductName.Location = new System.Drawing.Point(113, 411);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(170, 33);
+            this.txtProductName.Size = new System.Drawing.Size(191, 24);
             this.txtProductName.TabIndex = 19;
-            this.txtProductName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtProductID
             // 
-            this.txtProductID.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductID.Location = new System.Drawing.Point(159, 357);
+            this.txtProductID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtProductID.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductID.ForeColor = System.Drawing.Color.Black;
+            this.txtProductID.Location = new System.Drawing.Point(113, 356);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.ReadOnly = true;
-            this.txtProductID.Size = new System.Drawing.Size(49, 33);
+            this.txtProductID.Size = new System.Drawing.Size(40, 24);
             this.txtProductID.TabIndex = 18;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(57, 473);
+            this.label3.ForeColor = System.Drawing.Color.Gray;
+            this.label3.Location = new System.Drawing.Point(33, 466);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 25);
             this.label3.TabIndex = 15;
@@ -105,7 +105,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(56, 416);
+            this.label2.ForeColor = System.Drawing.Color.Gray;
+            this.label2.Location = new System.Drawing.Point(32, 409);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 25);
             this.label2.TabIndex = 14;
@@ -115,7 +116,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(57, 361);
+            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.Location = new System.Drawing.Point(33, 354);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 25);
             this.label1.TabIndex = 13;
@@ -131,48 +133,48 @@
             this.dgvProductAll.AllowUserToAddRows = false;
             this.dgvProductAll.AllowUserToDeleteRows = false;
             this.dgvProductAll.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSlateGray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvProductAll.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightSlateGray;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvProductAll.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvProductAll.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvProductAll.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductAll.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.LightSlateGray;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductAll.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvProductAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductAll.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvProductAll.Location = new System.Drawing.Point(38, 49);
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LightSlateGray;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductAll.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvProductAll.Location = new System.Drawing.Point(38, 73);
             this.dgvProductAll.Name = "dgvProductAll";
             this.dgvProductAll.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SlateGray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductAll.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SlateGray;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvProductAll.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.SlateGray;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductAll.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SlateGray;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvProductAll.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvProductAll.RowTemplate.Height = 24;
-            this.dgvProductAll.Size = new System.Drawing.Size(457, 284);
+            this.dgvProductAll.Size = new System.Drawing.Size(457, 260);
             this.dgvProductAll.TabIndex = 43;
             this.dgvProductAll.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductAll_CellClick);
             // 
@@ -185,10 +187,10 @@
             this.btnInsert.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnInsert.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnInsert.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnInsert.FillColor = System.Drawing.Color.Gray;
-            this.btnInsert.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInsert.FillColor = System.Drawing.Color.DarkGray;
+            this.btnInsert.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnInsert.ForeColor = System.Drawing.Color.White;
-            this.btnInsert.Location = new System.Drawing.Point(38, 447);
+            this.btnInsert.Location = new System.Drawing.Point(38, 401);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(118, 33);
             this.btnInsert.TabIndex = 44;
@@ -199,6 +201,7 @@
             // 
             this.panel1.Controls.Add(this.btnEsc);
             this.panel1.Controls.Add(this.btnClear);
+            this.panel1.Controls.Add(this.btnImage);
             this.panel1.Controls.Add(this.pboxProduct);
             this.panel1.Controls.Add(this.txtProductName);
             this.panel1.Controls.Add(this.label1);
@@ -207,29 +210,49 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtProductID);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(529, 0);
+            this.panel1.Location = new System.Drawing.Point(501, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(386, 524);
+            this.panel1.Size = new System.Drawing.Size(336, 526);
             this.panel1.TabIndex = 45;
             // 
             // btnEsc
             // 
             this.btnEsc.AutoRoundedCorners = true;
             this.btnEsc.BorderColor = System.Drawing.Color.Transparent;
-            this.btnEsc.BorderRadius = 15;
+            this.btnEsc.BorderRadius = 19;
             this.btnEsc.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnEsc.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnEsc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEsc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEsc.FillColor = System.Drawing.Color.Transparent;
-            this.btnEsc.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnEsc.ForeColor = System.Drawing.Color.RosyBrown;
-            this.btnEsc.Location = new System.Drawing.Point(345, 3);
+            this.btnEsc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEsc.ForeColor = System.Drawing.Color.DimGray;
+            this.btnEsc.Location = new System.Drawing.Point(290, 3);
             this.btnEsc.Name = "btnEsc";
-            this.btnEsc.Size = new System.Drawing.Size(38, 33);
+            this.btnEsc.Size = new System.Drawing.Size(46, 40);
             this.btnEsc.TabIndex = 50;
             this.btnEsc.Text = "X";
             this.btnEsc.Click += new System.EventHandler(this.btnEsc_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.AutoRoundedCorners = true;
+            this.btnClear.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClear.BorderRadius = 15;
+            this.btnClear.BorderThickness = 1;
+            this.btnClear.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClear.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnClear.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnClear.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnClear.FillColor = System.Drawing.Color.Transparent;
+            this.btnClear.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnClear.ForeColor = System.Drawing.Color.DarkGray;
+            this.btnClear.Location = new System.Drawing.Point(205, 352);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(99, 33);
+            this.btnClear.TabIndex = 49;
+            this.btnClear.Text = "Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnUpdate
             // 
@@ -240,10 +263,10 @@
             this.btnUpdate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnUpdate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnUpdate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnUpdate.FillColor = System.Drawing.Color.Gray;
-            this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.FillColor = System.Drawing.Color.DarkGray;
+            this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(207, 447);
+            this.btnUpdate.Location = new System.Drawing.Point(206, 401);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(118, 33);
             this.btnUpdate.TabIndex = 46;
@@ -259,10 +282,10 @@
             this.btnDelete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnDelete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnDelete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDelete.FillColor = System.Drawing.Color.Gray;
-            this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.FillColor = System.Drawing.Color.DarkGray;
+            this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(377, 447);
+            this.btnDelete.Location = new System.Drawing.Point(377, 401);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(118, 33);
             this.btnDelete.TabIndex = 47;
@@ -278,62 +301,64 @@
             this.btnImage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnImage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnImage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnImage.FillColor = System.Drawing.Color.Gray;
-            this.btnImage.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImage.FillColor = System.Drawing.Color.DarkGray;
+            this.btnImage.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnImage.ForeColor = System.Drawing.Color.White;
-            this.btnImage.Location = new System.Drawing.Point(38, 384);
+            this.btnImage.Location = new System.Drawing.Point(205, 458);
             this.btnImage.Name = "btnImage";
-            this.btnImage.Size = new System.Drawing.Size(118, 33);
+            this.btnImage.Size = new System.Drawing.Size(99, 33);
             this.btnImage.TabIndex = 48;
             this.btnImage.Text = "Image";
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
-            // btnClear
-            // 
-            this.btnClear.AutoRoundedCorners = true;
-            this.btnClear.BorderColor = System.Drawing.Color.DimGray;
-            this.btnClear.BorderRadius = 15;
-            this.btnClear.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnClear.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnClear.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnClear.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnClear.FillColor = System.Drawing.Color.Gray;
-            this.btnClear.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(229, 357);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(99, 33);
-            this.btnClear.TabIndex = 49;
-            this.btnClear.Text = "Clear";
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // btnRefresh
             // 
             this.btnRefresh.AutoRoundedCorners = true;
-            this.btnRefresh.BorderColor = System.Drawing.Color.DimGray;
+            this.btnRefresh.BorderColor = System.Drawing.Color.DarkGray;
             this.btnRefresh.BorderRadius = 15;
+            this.btnRefresh.BorderThickness = 1;
             this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRefresh.FillColor = System.Drawing.Color.Gray;
-            this.btnRefresh.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(207, 384);
+            this.btnRefresh.FillColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnRefresh.ForeColor = System.Drawing.Color.DarkGray;
+            this.btnRefresh.Location = new System.Drawing.Point(377, 466);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(118, 33);
             this.btnRefresh.TabIndex = 50;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // pboxProduct
+            // 
+            this.pboxProduct.Location = new System.Drawing.Point(20, 73);
+            this.pboxProduct.Name = "pboxProduct";
+            this.pboxProduct.Size = new System.Drawing.Size(284, 260);
+            this.pboxProduct.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pboxProduct.TabIndex = 22;
+            this.pboxProduct.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Gray;
+            this.label4.Location = new System.Drawing.Point(359, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(136, 36);
+            this.label4.TabIndex = 51;
+            this.label4.Text = "Products";
+            // 
             // frmProductDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(915, 524);
+            this.ClientSize = new System.Drawing.Size(837, 526);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnRefresh);
-            this.Controls.Add(this.btnImage);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnInsert);
@@ -341,13 +366,14 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProductDetail";
-            this.Text = "商品詳細資訊";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmProductDetail_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pboxProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductAll)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxProduct)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -369,5 +395,6 @@
         private Guna.UI2.WinForms.Guna2Button btnEsc;
         private Guna.UI2.WinForms.Guna2Button btnClear;
         private Guna.UI2.WinForms.Guna2Button btnRefresh;
+        private System.Windows.Forms.Label label4;
     }
 }

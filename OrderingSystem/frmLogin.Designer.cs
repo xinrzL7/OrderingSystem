@@ -53,7 +53,7 @@
             this.btnLogin.FillColor = System.Drawing.Color.Transparent;
             this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.DimGray;
-            this.btnLogin.Location = new System.Drawing.Point(400, 350);
+            this.btnLogin.Location = new System.Drawing.Point(376, 345);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(107, 45);
             this.btnLogin.TabIndex = 0;
@@ -64,7 +64,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(315, 130);
+            this.label1.Location = new System.Drawing.Point(300, 116);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(240, 33);
             this.label1.TabIndex = 2;
@@ -74,7 +74,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(315, 244);
+            this.label2.Location = new System.Drawing.Point(300, 230);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(138, 33);
             this.label2.TabIndex = 3;
@@ -84,8 +84,8 @@
             // 
             this.txtEmail.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(321, 177);
+            this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(306, 163);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(260, 36);
@@ -95,8 +95,8 @@
             // 
             this.txtPassword.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(321, 294);
+            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(306, 280);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(260, 36);
@@ -117,9 +117,9 @@
             this.btnEsc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEsc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEsc.FillColor = System.Drawing.Color.Transparent;
-            this.btnEsc.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnEsc.ForeColor = System.Drawing.Color.RosyBrown;
-            this.btnEsc.Location = new System.Drawing.Point(565, 12);
+            this.btnEsc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEsc.ForeColor = System.Drawing.Color.DimGray;
+            this.btnEsc.Location = new System.Drawing.Point(541, 12);
             this.btnEsc.Name = "btnEsc";
             this.btnEsc.Size = new System.Drawing.Size(38, 33);
             this.btnEsc.TabIndex = 9;
@@ -132,7 +132,7 @@
             this.pictureBox1.Image = global::OrderingSystem.Properties.Resources.Login1;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(272, 513);
+            this.pictureBox1.Size = new System.Drawing.Size(272, 425);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -142,7 +142,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(615, 513);
+            this.ClientSize = new System.Drawing.Size(591, 425);
             this.Controls.Add(this.btnEsc);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmail);
@@ -152,6 +152,7 @@
             this.Controls.Add(this.btnLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogIn";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

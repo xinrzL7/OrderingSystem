@@ -149,5 +149,26 @@
   <ItemGroup>
     <None Include="Resources\sginup1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shoppingcart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delivery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\receiver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\receiver1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\member.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\management.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
