@@ -10,13 +10,15 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Xml.Linq;
 
-
+//todo 排版
 namespace OrderingSystem
 {
     public partial class frmMemberInfo : Form
     {
         SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
         string strDBConnectionString = "";
+        List<int> searchResultIDs = new List<int>();
+
 
         public frmMemberInfo()
         {
@@ -139,7 +141,7 @@ namespace OrderingSystem
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 cmd.Parameters.AddWithValue("@SearchID", selectedID);
                 SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read() == true)
+                if (reader.Read())
                 {
                     txtMemberID.Text = reader["memberID"].ToString();
                     txtMemberName.Text = reader["Name"].ToString();
@@ -255,6 +257,94 @@ namespace OrderingSystem
         {
             ClearAll();
         }
+
+        private void lboxResult_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lboxResult.SelectedIndex >= 0)
+            {
+                int selectedID = searchResultIDs[lboxResult.SelectedIndex];
+
+                if (txtKeyword.Text != "")
+                {
+                    SqlConnection con = new SqlConnection(strDBConnectionString);
+                    con.Open();
+                    string strSQL = $"select * from tbMembers where memberID = @SearchID;";
+                    SqlCommand cmd = new SqlCommand(strSQL, con);
+                    cmd.Parameters.AddWithValue("@SearchID", selectedID);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read() == true)
+                    {
+                        txtMemberID.Text = reader["memberID"].ToString();
+                        txtMemberName.Text = reader["Name"].ToString();
+                        dtpBirth.Value = Convert.ToDateTime(reader["Birth"]);
+                        txtPhone.Text = reader["Phone"].ToString();
+                        txtEmail.Text = reader["Email"].ToString();
+                        txtPassword.Text = reader["Password"].ToString();
+                        txtAddress.Text = reader["Address"].ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No such person.","Try  Again");
+                        ClearAll();
+                    }
+                    reader.Close();
+                    con.Close();
+                }
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if ((txtKeyword.Text != "") || ((dtpBirthStart.Value != null) && (dtpBirthEnd.Value != null)))
+            {
+                lboxResult.Items.Clear();
+                searchResultIDs.Clear();  
+                string strCBOXsearch = cboxSearch.SelectedItem.ToString().ToLower();
+                string sqlSearchID = "select * from tbMembers where memberID = @searchID;";
+
+                SqlConnection con = new SqlConnection(strDBConnectionString);
+                con.Open();
+
+                string strSQL = $"select * from tbMembers where (Birth between @BirthStart and @BirthEnd) OR {strCBOXsearch} like @searchKeyword;";
+                if (cboxSearch.SelectedItem.ToString().ToLower() == "id")
+                {
+                    strSQL = sqlSearchID;
+                }
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+
+                if (cboxSearch.SelectedItem.ToString().ToLower() == "id")
+                {
+                    int intID = 0;
+                    Int32.TryParse(txtKeyword.Text, out intID);
+                    cmd.Parameters.AddWithValue("@searchID", intID);
+                }
+
+                cmd.Parameters.AddWithValue("@searchKeyword", $"%{txtKeyword.Text}%");
+                cmd.Parameters.AddWithValue("@BirthStart", dtpBirthStart.Value);
+                cmd.Parameters.AddWithValue("@BirthEnd", dtpBirthEnd.Value);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                int count = 0;
+                while (reader.Read())
+                {
+                    searchResultIDs.Add((int)reader["memberID"]);
+                    //todo 要呈現名字和ID就好?
+                    lboxResult.Items.Add($"{reader["memberID"]} - {reader["Name"]}");
+                    count++;
+                }
+                if (count == 0)
+                    MessageBox.Show("No such person.", "Try  Again");
+
+                reader.Close();
+                con.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please input a word or select birthdate.", "Try  Again");
+            }
+        }
+
+        
     }
 }
 

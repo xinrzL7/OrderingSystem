@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+//todo 排版
 namespace OrderingSystem
 {
     public partial class frmAdmin : Form
@@ -39,6 +41,12 @@ namespace OrderingSystem
 
         private void btnMM_Click(object sender, EventArgs e)
         {
+          frmMemberInfo mm =  new frmMemberInfo();
+        }
+
+        private void btnOM_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

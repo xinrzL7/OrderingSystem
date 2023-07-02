@@ -17,7 +17,7 @@ namespace OrderingSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMemberInfo()) ;
+            Application.Run(new frmOrderManagement()) ;
         }
     }
 }

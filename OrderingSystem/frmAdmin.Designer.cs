@@ -35,6 +35,7 @@
             this.btnMM = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.btnEsc = new Guna.UI2.WinForms.Guna2Button();
+            this.btnOM = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // btnPM
@@ -48,7 +49,7 @@
             this.btnPM.FillColor = System.Drawing.Color.Gray;
             this.btnPM.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPM.ForeColor = System.Drawing.Color.White;
-            this.btnPM.Location = new System.Drawing.Point(31, 262);
+            this.btnPM.Location = new System.Drawing.Point(28, 196);
             this.btnPM.Name = "btnPM";
             this.btnPM.Size = new System.Drawing.Size(278, 35);
             this.btnPM.TabIndex = 0;
@@ -76,7 +77,7 @@
             this.btnSignout.FillColor = System.Drawing.Color.Gray;
             this.btnSignout.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignout.ForeColor = System.Drawing.Color.White;
-            this.btnSignout.Location = new System.Drawing.Point(115, 206);
+            this.btnSignout.Location = new System.Drawing.Point(115, 90);
             this.btnSignout.Name = "btnSignout";
             this.btnSignout.Size = new System.Drawing.Size(106, 37);
             this.btnSignout.TabIndex = 2;
@@ -94,7 +95,7 @@
             this.btnMM.FillColor = System.Drawing.Color.Gray;
             this.btnMM.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMM.ForeColor = System.Drawing.Color.White;
-            this.btnMM.Location = new System.Drawing.Point(31, 312);
+            this.btnMM.Location = new System.Drawing.Point(28, 246);
             this.btnMM.Name = "btnMM";
             this.btnMM.Size = new System.Drawing.Size(278, 40);
             this.btnMM.TabIndex = 3;
@@ -125,12 +126,31 @@
             this.btnEsc.Text = "X";
             this.btnEsc.Click += new System.EventHandler(this.btnEsc_Click);
             // 
+            // btnOM
+            // 
+            this.btnOM.AutoRoundedCorners = true;
+            this.btnOM.BorderRadius = 19;
+            this.btnOM.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnOM.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnOM.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnOM.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnOM.FillColor = System.Drawing.Color.Gray;
+            this.btnOM.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnOM.ForeColor = System.Drawing.Color.White;
+            this.btnOM.Location = new System.Drawing.Point(28, 303);
+            this.btnOM.Name = "btnOM";
+            this.btnOM.Size = new System.Drawing.Size(278, 40);
+            this.btnOM.TabIndex = 43;
+            this.btnOM.Text = "Order Management";
+            this.btnOM.Click += new System.EventHandler(this.btnOM_Click);
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(350, 416);
+            this.Controls.Add(this.btnOM);
             this.Controls.Add(this.btnEsc);
             this.Controls.Add(this.btnMM);
             this.Controls.Add(this.btnSignout);
@@ -152,5 +172,6 @@
         private Guna.UI2.WinForms.Guna2Button btnMM;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Button btnEsc;
+        private Guna.UI2.WinForms.Guna2Button btnOM;
     }
 }

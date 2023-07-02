@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Authentication.ExtendedProtection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
@@ -14,6 +15,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using Image = System.Drawing.Image;
 using View = System.Windows.Forms.View;
 
+
+
+//todo 排版
 namespace OrderingSystem
 {
     public partial class frmHome : Form
@@ -322,7 +326,14 @@ namespace OrderingSystem
 
                     cmdInsertOrder.Parameters.AddWithValue("@oTotalPrice", totalPrice);
                     cmdInsertOrder.Parameters.AddWithValue("@oOrderDate", DateTime.Now);
-                    cmdInsertOrder.Parameters.AddWithValue("@oShipVia", isShipping);
+                    if (isShipping)
+                    {
+                        cmdInsertOrder.Parameters.AddWithValue("@oShipVia", rbtnShipping.Text);
+                    }
+                    else
+                    {
+                        cmdInsertOrder.Parameters.AddWithValue("@oShipVia", rbtnShipping.Checked);
+                    }
                     cmdInsertOrder.Parameters.AddWithValue("@oShipName", txtshipName.Text);
                     cmdInsertOrder.Parameters.AddWithValue("@oAddress", txtShipAddr.Text);
                     int rowsInsertOrder= cmdInsertOrder.ExecuteNonQuery();
