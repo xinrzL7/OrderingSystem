@@ -71,6 +71,7 @@
             this.btnAll = new Guna.UI2.WinForms.Guna2Button();
             this.btnEsc = new Guna.UI2.WinForms.Guna2Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberAll)).BeginInit();
             this.panel1.SuspendLayout();
@@ -400,7 +401,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvMemberAll.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvMemberAll.Location = new System.Drawing.Point(235, 441);
+            this.dgvMemberAll.Location = new System.Drawing.Point(235, 453);
             this.dgvMemberAll.Name = "dgvMemberAll";
             this.dgvMemberAll.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -573,11 +574,23 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(236, 416);
+            this.label3.Location = new System.Drawing.Point(236, 428);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(127, 22);
             this.label3.TabIndex = 76;
             this.label3.Text = "Member Info";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label14.ForeColor = System.Drawing.Color.Silver;
+            this.label14.Location = new System.Drawing.Point(335, 396);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(240, 20);
+            this.label14.TabIndex = 77;
+            this.label14.Text = "共8碼：生日日期4碼+手機後4碼";
             // 
             // frmMemberInfo
             // 
@@ -585,6 +598,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1100, 690);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnEsc);
             this.Controls.Add(this.panel1);
@@ -656,5 +670,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label14;
     }
 }

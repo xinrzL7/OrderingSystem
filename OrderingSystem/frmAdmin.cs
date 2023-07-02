@@ -41,7 +41,8 @@ namespace OrderingSystem
 
         private void btnMM_Click(object sender, EventArgs e)
         {
-          frmMemberInfo mm =  new frmMemberInfo();
+            frmMemberInfo mm =  new frmMemberInfo();
+            mm.ShowDialog();
         }
 
         private void btnOM_Click(object sender, EventArgs e)

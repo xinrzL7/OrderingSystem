@@ -328,16 +328,16 @@ namespace OrderingSystem
                     cmdInsertOrder.Parameters.AddWithValue("@oOrderDate", DateTime.Now);
                     if (isShipping)
                     {
-                        cmdInsertOrder.Parameters.AddWithValue("@oShipVia", rbtnShipping.Text);
+                        cmdInsertOrder.Parameters.AddWithValue("@oShipVia", rbtnShipping.Checked);
                     }
                     else
                     {
-                        cmdInsertOrder.Parameters.AddWithValue("@oShipVia", rbtnShipping.Checked);
+                        cmdInsertOrder.Parameters.AddWithValue("@oShipVia", rbtnShop.Checked);
                     }
                     cmdInsertOrder.Parameters.AddWithValue("@oShipName", txtshipName.Text);
                     cmdInsertOrder.Parameters.AddWithValue("@oAddress", txtShipAddr.Text);
                     int rowsInsertOrder= cmdInsertOrder.ExecuteNonQuery();
-                   int newOrderID = 0;
+                    int newOrderID = 0;
                     if (rowsInsertOrder >0) 
                     {
                         //string sqlGetOrderID = "SELECT SCOPE_IDENTITY() From tbOrders;";
@@ -374,6 +374,9 @@ namespace OrderingSystem
                     con.Close();
                     //清空購物車的 DataTable
                     dtCart.Rows.Clear();
+                    OrderTotalPrice = 0;
+                    lblOrderTotalPrice.Text = $"NT {OrderTotalPrice}";
+
                 }
                 else
                 {
